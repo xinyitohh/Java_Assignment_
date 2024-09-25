@@ -198,7 +198,7 @@ public class RaiseIssue extends javax.swing.JFrame {
 
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new HallBooking(customer).setVisible(true);
+        new HallBooking().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 

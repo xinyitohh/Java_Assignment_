@@ -10,8 +10,7 @@ import javax.swing.JOptionPane;
 public class CustomerDashboard extends javax.swing.JFrame {
     
     private Customer customer;
-
-
+    
     public CustomerDashboard() {
         this.customer = Session.getInstance().getCustomer();
         initComponents();

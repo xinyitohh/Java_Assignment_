@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Broken AC;Air conditioning not cooling;John Doe;S1001;In Progress;In Progress
 Leaking Pipe;Water leakage in kitchen;Sarah Johnson;Emily Davis;Done;Done
 Faulty Wiring;Electrical short circuit;Michael Brown;S1001;Closed;Closed
@@ -8,3 +9,15 @@ Malfunctioning Heater;Heater not turning on;;testtest;Closed;Closed
 Power Outage;Power outage in the whole building;Tom Holland;;Done;Done
 Faulty Thermostat;Thermostat not responding;Robert Stark;S1001;Done;Done
 Damaged Roof;Roofer needs to be called;;b;In Progress;In Progress
+=======
+Broken AC;Air conditioning not cooling;John Doe;S1001;Cancelled;Cancelled
+Leaking Pipe;Water leakage in kitchen;Sarah Johnson;Emily Davis;Done;Done
+Faulty Wiring;Electrical short circuit;Michael Brown;S1001;Closed;Closed
+No Internet;Internet connection down;David Lee;;Pending;Pending
+Broken Window;Glass window shattered;Chris Martin;a;Done;Done
+Clogged Drain;Kitchen sink is clogged;;S1001;Done;Done
+Malfunctioning Heater;Heater not turning on;;testtest;Closed;Closed
+Power Outage;Power outage in the whole building;Tom Holland;;Cancelled;Cancelled
+Faulty Thermostat;Thermostat not responding;Robert Stark;S1001;Done;Done
+Damaged Roof;Roofer needs to be called;;a;Done;Done
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c

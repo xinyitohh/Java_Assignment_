@@ -60,9 +60,21 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblHall" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="lblSchedule" min="-2" max="-2" attributes="0"/>
+=======
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblView" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="lblSchedule" min="-2" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -76,7 +88,13 @@
                   <Component id="lblHall" min="-2" pref="125" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="lblSchedule" min="-2" pref="90" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <EmptySpace pref="267" max="32767" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="lblView" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
               </Group>
           </Group>
         </DimensionLayout>
@@ -128,6 +146,20 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblScheduleMouseClicked"/>
           </Events>
         </Component>
+<<<<<<< HEAD
+=======
+        <Component class="javax.swing.JLabel" name="lblView">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="jLabel4"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblViewMouseClicked"/>
+          </Events>
+        </Component>
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">

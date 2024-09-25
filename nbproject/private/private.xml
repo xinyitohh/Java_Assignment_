@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/customer/UserIDIncrement.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/customer/Login.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/admin/Email.java</file>
@@ -22,6 +23,10 @@
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/customer/BookingIDIncrement.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/customer/ReceiptForm.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Customer_Java_Assignment/src/customer/Customer.java</file>
+=======
+            <file>file:/Users/kairuisam/NetBeansProjects/assignment_latest_FINAL_1/src/assignment/Frame_Sales_Dashboard.java</file>
+            <file>file:/Users/kairuisam/NetBeansProjects/assignment_latest_FINAL_1/TXT_DATA/sam.txt</file>
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         </group>
     </open-files>
 </project-private>

@@ -150,6 +150,10 @@ public class Schedule implements DataValidation{
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date today = new Date();
+<<<<<<< HEAD
+=======
+        System.out.println(today);
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         Date StartDate = null;
         Date EndDate = null;
 

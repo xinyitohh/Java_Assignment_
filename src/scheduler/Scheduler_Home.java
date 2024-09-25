@@ -54,6 +54,10 @@ public class Scheduler_Home extends javax.swing.JFrame{
         pnlNav = new javax.swing.JPanel();
         lblHall = new javax.swing.JLabel();
         lblSchedule = new javax.swing.JLabel();
+<<<<<<< HEAD
+=======
+        lblView = new javax.swing.JLabel();
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -93,6 +97,17 @@ public class Scheduler_Home extends javax.swing.JFrame{
             }
         });
 
+<<<<<<< HEAD
+=======
+        lblView.setForeground(new java.awt.Color(255, 255, 255));
+        lblView.setText("jLabel4");
+        lblView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblViewMouseClicked(evt);
+            }
+        });
+
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         javax.swing.GroupLayout pnlNavLayout = new javax.swing.GroupLayout(pnlNav);
         pnlNav.setLayout(pnlNavLayout);
         pnlNavLayout.setHorizontalGroup(
@@ -102,9 +117,19 @@ public class Scheduler_Home extends javax.swing.JFrame{
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                    .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlNavLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblView, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlNavLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNavLayout.setVerticalGroup(
@@ -114,7 +139,13 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(267, Short.MAX_VALUE))
+=======
+                .addGap(70, 70, 70)
+                .addComponent(lblView)
+                .addContainerGap(181, Short.MAX_VALUE))
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         );
 
         jPanel2.setBackground(new java.awt.Color(239, 239, 239));
@@ -227,6 +258,14 @@ public class Scheduler_Home extends javax.swing.JFrame{
         this.dispose();
     }//GEN-LAST:event_lblScheduleMouseClicked
 
+<<<<<<< HEAD
+=======
+    private void lblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
+    }//GEN-LAST:event_lblViewMouseClicked
+
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
     /**
      * @param args the command line arguments
      */
@@ -272,6 +311,10 @@ public class Scheduler_Home extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblHall;
     private javax.swing.JLabel lblSchedule;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel lblView;
+>>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
     private javax.swing.JPanel pnlNav;
     // End of variables declaration//GEN-END:variables
 }
