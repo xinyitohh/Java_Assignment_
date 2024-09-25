@@ -3,8 +3,13 @@ package customer;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
+
 public class Topup extends javax.swing.JFrame {
-    private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
 
     public Topup(Customer customer) {
         this.customer = customer;
@@ -186,14 +191,14 @@ public class Topup extends javax.swing.JFrame {
         // validate password for topup
         if (customer.getPassword().equals(password)) {
             customer.setBalance(customer.getBalance() + amount);
-            Session.getInstance().setCustomer(customer);
+            //Session.getInstance().setCustomer(customer);
             CustomerManager customerManager = new CustomerManager();
             customerManager.updateCustomerFile(customer);
             new CustomerDashboard().setVisible(true);
             this.dispose();
         } else {
             // show error message
-            javax.swing.JOptionPane.showMessageDialog(this, "Incorrect password!"+ customer.getPassword());
+            javax.swing.JOptionPane.showMessageDialog(this, "Incorrect password!");
         }
     }//GEN-LAST:event_btnTopupActionPerformed
 
@@ -230,8 +235,8 @@ public class Topup extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Customer customer = Session.getInstance().getCustomer();
-                new Topup(customer).setVisible(true);
+                //Customer customer = Session.getInstance().getCustomer();
+                //new Topup(customer).setVisible(true);
             }
         });
     }

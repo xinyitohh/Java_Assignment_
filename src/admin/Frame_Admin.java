@@ -39,7 +39,7 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
         updateTable(tScheduler,schedulerList);
         tScheduler.setDefaultRenderer(Object.class, new AlternatingRowRenderer());
         tUser.setDefaultRenderer(Object.class, new AlternatingRowRenderer()); 
-        User.setProfile(lblProfileID, lblProfilePic, currentUser);
+        User.setProfile(lblProfilePic, currentUser);
 
         
         jTabbedPane.addChangeListener(new ChangeListener() {
@@ -308,7 +308,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
             }
         });
 
-        lblProfilePic.setIcon(new javax.swing.ImageIcon("C:\\Users\\U S E R\\Desktop\\emopou.jpg")); // NOI18N
         lblProfilePic.setText("images/default.jpg");
         lblProfilePic.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblProfilePic.setMaximumSize(new java.awt.Dimension(85, 85));
@@ -335,34 +334,33 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                            .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                            .addComponent(btnScheduler, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(lblProfileID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblProfileID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(btnScheduler, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(lblProfileID)
-                .addGap(11, 11, 11)
+                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnScheduler, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
+                .addComponent(lblProfileID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
         );
@@ -453,7 +451,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
             }
         });
 
-        lblPicture.setIcon(new javax.swing.ImageIcon("C:\\Users\\U S E R\\Desktop\\emopou.jpg")); // NOI18N
         lblPicture.setText("images/default.jpg");
         lblPicture.setMaximumSize(new java.awt.Dimension(85, 85));
         lblPicture.setPreferredSize(new java.awt.Dimension(85, 85));
@@ -801,7 +798,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
             }
         });
 
-        lblPicture1.setIcon(new javax.swing.ImageIcon("C:\\Users\\U S E R\\Desktop\\emopou.jpg")); // NOI18N
         lblPicture1.setText("images/default.jpg");
         lblPicture1.setMaximumSize(new java.awt.Dimension(85, 85));
         lblPicture1.setPreferredSize(new java.awt.Dimension(85, 85));

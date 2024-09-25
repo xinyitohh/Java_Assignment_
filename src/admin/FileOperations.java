@@ -18,7 +18,8 @@ public class FileOperations {
                               user.getEmail() + ";" +
                               user.getPhone() + ";" +
                               user.getPicture() + ";" +
-                              user.getStatus(); 
+                              user.getStatus() + ";" +
+                              user.getBalance(); 
                 writer.write(line);
                 writer.newLine();
             }
@@ -35,7 +36,7 @@ public class FileOperations {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length == 8) { 
+                if (parts.length == 9) { 
                     String id = parts[0];
                     String password = parts[1];
                     String name = parts[2];
@@ -44,16 +45,17 @@ public class FileOperations {
                     String phone = parts[5];
                     String picture = parts[6];
                     String status = parts[7];
+                    double balance = Double.parseDouble(parts[8]);
 
                     User tempUser = null;
                     if (fileName.contains("scheduler")) {
-                        tempUser = new Scheduler(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Scheduler(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("customer")) {
-                        tempUser = new Customer(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Customer(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("manager")) {
-                        tempUser = new Manager(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Manager(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("admin")) {
-                        tempUser = new Admin(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Admin(id, password, name, gender, email, phone, picture, status, balance);
                     }
 
                     if (tempUser != null) {
@@ -73,7 +75,7 @@ public class FileOperations {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length == 8) {
+                if (parts.length == 9) {
                     String id = parts[0];
                     String password = parts[1];
                     String name = parts[2];
@@ -82,17 +84,18 @@ public class FileOperations {
                     String phone = parts[5];
                     String picture = parts[6];
                     String status = parts[7];
+                    double balance = Double.parseDouble(parts[8]);
 
                     // Assuming each file is related to a specific role, we can determine the role by file name
                     User tempUser = null;
                     if (fileName.contains("scheduler")) {
-                        tempUser = new Scheduler(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Scheduler(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("customer")) {
-                        tempUser = new Customer(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Customer(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("manager")) {
-                        tempUser = new Manager(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Manager(id, password, name, gender, email, phone, picture, status, balance);
                     } else if (fileName.contains("admin")) {
-                        tempUser = new Admin(id, password, name, gender, email, phone, picture, status);
+                        tempUser = new Admin(id, password, name, gender, email, phone, picture, status, balance);
                     }
 
                     if (tempUser != null) {

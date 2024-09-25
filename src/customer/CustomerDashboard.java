@@ -1,6 +1,9 @@
 
 package customer;
 
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,10 +12,11 @@ import javax.swing.JOptionPane;
 
 public class CustomerDashboard extends javax.swing.JFrame {
     
-    private Customer customer;
+    //private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer)currentUser;
     
     public CustomerDashboard() {
-        this.customer = Session.getInstance().getCustomer();
         initComponents();
         lblBalance.setText(String.format("%.2f", customer.getBalance()));
         loadUpcomingBookings();
@@ -289,7 +293,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void loadUpcomingBookings() {
-        String customerId = Session.getInstance().getCustomer().getUserid();
+        String customerId = customer.getUserId();
         String filePath = "booking.txt";
         int upcomingCount = 0; // counter initial
 
@@ -346,13 +350,13 @@ public class CustomerDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Customer customer = Session.getInstance().getCustomer();
-                if (customer != null) {
-                    new CustomerDashboard().setVisible(true);
-                } else {
-                    // Handle the case where no customer is set
-                    System.out.println("No customer data available.");
-                }
+                
+//                if (customer != null) {
+//                    new CustomerDashboard().setVisible(true);
+//                } else {
+//                    // Handle the case where no customer is set
+//                    System.out.println("No customer data available.");
+//                }
                 }
             });
     }

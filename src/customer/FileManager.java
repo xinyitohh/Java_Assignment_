@@ -1,5 +1,8 @@
 package customer;
 import java.io.*;
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class FileManager {
     // write data to any text file

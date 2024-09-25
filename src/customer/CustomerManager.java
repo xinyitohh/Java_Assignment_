@@ -1,5 +1,7 @@
 package customer;
-
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,7 +17,7 @@ public class CustomerManager {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith(updatedCustomer.getUserid() + ";")) {
+                if (line.startsWith(updatedCustomer.getUserId() + ";")) {
                     // Replace the old line with the updated customer data
                     lines.add(updatedCustomer.toString());
                 } else {

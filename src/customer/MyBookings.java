@@ -7,22 +7,24 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class MyBookings extends javax.swing.JFrame {
-    private Customer customer;
-
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
 
     public MyBookings() {
-        this.customer = Session.getInstance().getCustomer();
         initComponents();
         // upcoming tab
-        loadBookingsForCustomer(customer.getUserid(), tblUpcomingBookings, "upcoming");
+        loadBookingsForCustomer(customer.getUserId(), tblUpcomingBookings, "upcoming");
 
         // past tab
-        loadBookingsForCustomer(customer.getUserid(), tblPastBookings, "past");
+        loadBookingsForCustomer(customer.getUserId(), tblPastBookings, "past");
 
         // cancelled tab
-        loadBookingsForCustomer(customer.getUserid(), tblCancelledBookings, "cancelled");
+        loadBookingsForCustomer(customer.getUserId(), tblCancelledBookings, "cancelled");
     }
 
 
@@ -324,19 +326,19 @@ public class MyBookings extends javax.swing.JFrame {
         addToScheduleFile(bookingId);
         
         // update customer balance
-        updateCustomerBalance(customer.getUserid(), refund);
-        Customer updatedCustomer = Session.getInstance().getCustomer();
-        double currentBalance = updatedCustomer.getBalance();
+        updateCustomerBalance(customer.getUserId(), refund);
+        //Customer updatedCustomer = Session.getInstance().getCustomer();
+        double currentBalance = customer.getBalance();
         double newBalance = currentBalance + refund;
-        updatedCustomer.setBalance(newBalance); // update balance in session
-        Session.getInstance().setCustomer(updatedCustomer);
+        customer.setBalance(newBalance); // update balance in session
+        //Session.getInstance().setCustomer(updatedCustomer);
 
         // notify user
         JOptionPane.showMessageDialog(this, "Booking cancelled successfully. Refund: RM" + String.format("%.2f", refund));
 
         // refresh table after the new changes
-        loadBookingsForCustomer(customer.getUserid(), tblUpcomingBookings, "upcoming");
-        loadBookingsForCustomer(customer.getUserid(), tblCancelledBookings, "cancelled");
+        loadBookingsForCustomer(customer.getUserId(), tblUpcomingBookings, "upcoming");
+        loadBookingsForCustomer(customer.getUserId(), tblCancelledBookings, "cancelled");
     
     }//GEN-LAST:event_btnCancelActionPerformed
 

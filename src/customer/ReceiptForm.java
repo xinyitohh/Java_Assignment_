@@ -6,11 +6,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class ReceiptForm extends javax.swing.JFrame {
     private Payment payment;
-    private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
     String bookingId;
     private static final SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy hh:mma");
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -334,7 +337,7 @@ public class ReceiptForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Customer customer = Session.getInstance().getCustomer();
+        //Customer customer = Session.getInstance().getCustomer();
         new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -8,16 +8,18 @@ import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 
 
 public class MyProfile extends javax.swing.JFrame {
-    private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer)currentUser;
 
 
     public MyProfile() {
-        this.customer = Session.getInstance().getCustomer();
         initComponents();
         displayProfilePicture();
         loadCustomerProfile();
@@ -317,7 +319,7 @@ public class MyProfile extends javax.swing.JFrame {
         // save the details
         updateCustomerFile(customer);
         
-        Session.getInstance().setCustomer(customer);
+        //Session.getInstance().setCustomer(customer);
 
         JOptionPane.showMessageDialog(this, "Profile updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -370,7 +372,7 @@ public class MyProfile extends javax.swing.JFrame {
 
     private void loadCustomerProfile() {
         // set details for customer to view it
-        lblId.setText(customer.getUserid());  // not editable
+        lblId.setText(customer.getUserId());  // not editable
         txtName.setText(customer.getName());
         txtEmail.setText(customer.getEmail());
         txtPhone.setText(customer.getPhone());
@@ -415,7 +417,7 @@ public class MyProfile extends javax.swing.JFrame {
                 String[] data = line.split(";");
 
                 // validate user id
-                if (data[0].equals(updatedCustomer.getUserid())) {
+                if (data[0].equals(updatedCustomer.getUserId())) {
                     data[1] = updatedCustomer.getName();
                     data[2] = updatedCustomer.getEmail();
                     data[3] = updatedCustomer.getPhone();

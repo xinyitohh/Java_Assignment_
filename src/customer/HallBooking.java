@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class HallBooking extends javax.swing.JFrame {
     private List<Hall> allHalls; // Store all halls here
@@ -18,7 +21,8 @@ public class HallBooking extends javax.swing.JFrame {
     private String startDate;
     private String endDate;
     private double totalPrice;
-    private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
 
     
     public HallBooking() {
@@ -628,7 +632,6 @@ public class HallBooking extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Customer customer = Session.getInstance().getCustomer();
                 new HallBooking().setVisible(true);
             }
         });

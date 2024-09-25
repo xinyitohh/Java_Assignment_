@@ -1,9 +1,14 @@
 package admin;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public abstract class User {
     private String userId;
@@ -14,7 +19,7 @@ public abstract class User {
     private String phone;
     private String picture;
     private String status = "active";
-    private double balance;
+    private double balance = 0;
     private static User loggedInUser;
 
     abstract User login();
@@ -34,17 +39,42 @@ public abstract class User {
         User.loggedInUser = loggedInUser;
     }
     
-    public static void setProfile(JLabel id, JLabel picture, User user){
-        id.setText(user.getUserId());
-        picture.setText(user.getPicture());
+//    public static void setProfile(JLabel id, JLabel picture, User user){
+//        id.setText(user.getUserId());
+//        picture.setText(user.getPicture());
+//
+//        ImageIcon originalIcon = new ImageIcon(user.getPicture());
+//        Image scaledImage = originalIcon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+//
+//        picture.setIcon(scaledIcon);
+//        picture.setMaximumSize(new java.awt.Dimension(75, 75));
+//        picture.setPreferredSize(new java.awt.Dimension(75, 75));
+//    }
+    
+    public static void setProfile(JLabel picture, User user) {
+        if (user == null) {
+            System.out.println("User passed to setProfile is null!");
+            return; 
+        }
 
         ImageIcon originalIcon = new ImageIcon(user.getPicture());
         Image scaledImage = originalIcon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
         picture.setIcon(scaledIcon);
-        picture.setMaximumSize(new java.awt.Dimension(75, 75));
-        picture.setPreferredSize(new java.awt.Dimension(75, 75));
+
+        picture.setText(user.getUserId());
+        picture.setForeground(Color.WHITE); 
+        picture.setFont(new Font("Segoe UI", Font.BOLD, 14)); 
+        picture.setHorizontalTextPosition(SwingConstants.CENTER); 
+        picture.setVerticalTextPosition(SwingConstants.BOTTOM); 
+
+        picture.setBackground(new Color(0, 0, 0, 0)); 
+        picture.setOpaque(false);
+        picture.setHorizontalAlignment(SwingConstants.CENTER); 
+        picture.setVerticalAlignment(SwingConstants.CENTER);
+        picture.setPreferredSize(new Dimension(75, 75)); 
     }
     
     public User(String userId, String password, String name, String gender, String email, String phone, String picture, String status, double balance) {
@@ -77,6 +107,14 @@ public abstract class User {
     
     public User(String userId, String password, String name, String gender, String email, String phone, String picture) {
         this(userId, password, name, gender, email, phone, picture, "active");
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public String getUserId() {
@@ -148,4 +186,7 @@ public abstract class User {
         return String.format("User[ID=%s, Name=%s, Gender=%s, Email=%s, Phone=%s, Picture=%s, Status=%s\n]",
                 userId, name, gender, email, phone, picture, status);
     }
+    
+    
+    
 }

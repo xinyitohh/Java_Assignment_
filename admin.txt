@@ -1,2 +1,2 @@
-A1001;a;Xin Yi;M;xinyi74@hotmail.com;0182251761;images/A1001.jpg;active           
-A1002;a;Yi Kun;M;yikun9992@gmail.com;0166771767;images/A1002.jpg;active
+A1001;a;Xin Yi;M;xinyi74@hotmail.com;0182251761;images/A1001.jpg;active;0           
+A1002;a;Yi Kun;M;yikun9992@gmail.com;0166771767;images/A1002.jpg;active;0

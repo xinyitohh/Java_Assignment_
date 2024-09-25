@@ -8,14 +8,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class ViewIssue extends javax.swing.JFrame { 
-    private Customer customer; 
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
     private DefaultTableModel tableModel;
     
     public ViewIssue() {
-        this.customer = Session.getInstance().getCustomer();
+
         initComponents();
         loadIssues();
     }
@@ -156,7 +159,7 @@ public class ViewIssue extends javax.swing.JFrame {
     
     private void loadIssues() {
         tableModel = new DefaultTableModel(new String[]{"Booking ID", "Description", "Status"}, 0);
-        List<String[]> issues = getIssuesForCustomer(customer.getUserid());
+        List<String[]> issues = getIssuesForCustomer(customer.getUserId());
         for (String[] issue : issues) {
             Object[] row = new Object[]{
             issue[0],

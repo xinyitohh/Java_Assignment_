@@ -1,5 +1,9 @@
 package customer;
 
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
+
 public class Payment {
     private String hallType;
     private String hallName;

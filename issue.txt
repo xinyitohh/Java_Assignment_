@@ -1,1 +1,3 @@
 B1060;test;C1004;S1001;In Progress;Closed
+B1060;test;C1001;;Pending;A1
+B1060;ok;C1001;;Pending;A1

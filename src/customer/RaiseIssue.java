@@ -6,12 +6,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import javax.swing.JOptionPane;
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class RaiseIssue extends javax.swing.JFrame {
-    private Customer customer;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
 
     public RaiseIssue() {
-        this.customer = Session.getInstance().getCustomer();
+
         initComponents();
         loadBookingIds();
     }
@@ -223,10 +227,10 @@ public class RaiseIssue extends javax.swing.JFrame {
             return; // stop further processing
         }
         
-        String customerId = customer.getUserid();
+        String customerId = customer.getUserId();
         String hallName =  getHallNameByBookingId(bookingId);
         String status = "Pending";
-        String issueEntry = String.format("%s;%s;%s;%s;Pending;%s", bookingId, description, customer.getUserid(), "", hallName);
+        String issueEntry = String.format("%s;%s;%s;%s;Pending;%s", bookingId, description, customer.getUserId(), "", hallName);
         FileManager.writeToFile("issue.txt", issueEntry, true);
 
         // notify user
@@ -271,7 +275,7 @@ public class RaiseIssue extends javax.swing.JFrame {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(";");
-                if (data[1].equals(customer.getUserid()) && data[8].equals(status)) {
+                if (data[1].equals(customer.getUserId()) && data[8].equals(status)) {
                     bookingIds.add(data[0]);
                 }
             }

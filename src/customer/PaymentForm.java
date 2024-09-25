@@ -13,10 +13,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
-
+import admin.User;
+import admin.Customer;
+import admin.Frame_Login;
 
 public class PaymentForm extends javax.swing.JFrame {
     private Payment payment;
+    private User currentUser = User.getLoggedInUser();
+    Customer customer = (Customer) currentUser;
     private static final SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy hh:mma");
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     private static final SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mma");
@@ -331,7 +335,7 @@ public class PaymentForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Customer customer = Session.getInstance().getCustomer();
+        Customer customer = (Customer)User.getLoggedInUser();
         new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -341,7 +345,7 @@ public class PaymentForm extends javax.swing.JFrame {
         String StartDate = payment.getStartDate();
         String EndDate = payment.getEndDate();
         double totalPrice = payment.getTotalPrice();
-        double userBalance = Session.getInstance().getCustomer().getBalance();
+        double userBalance = User.getLoggedInUser().getBalance();
         double amountNeeded = totalPrice - userBalance;
 
         if (userBalance >= totalPrice) {
@@ -359,7 +363,7 @@ public class PaymentForm extends javax.swing.JFrame {
 
             if (result == JOptionPane.YES_OPTION) {
                 // redirect to topup form
-                Customer customer = Session.getInstance().getCustomer();
+                //Customer customer = Session.getInstance().getCustomer();
                 Topup topupForm = new Topup(customer);
                 topupForm.setVisible(true);
                 this.dispose();
@@ -369,12 +373,12 @@ public class PaymentForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfirmActionPerformed
     
     private String completePayment() {
-        Customer customer = Session.getInstance().getCustomer();
+        Customer customer = (Customer)User.getLoggedInUser();
         double totalPrice = payment.getTotalPrice();
 
         // update customer balance
         customer.setBalance(customer.getBalance() - totalPrice);
-        Session.getInstance().setCustomer(customer);
+        //Session.getInstance().setCustomer(customer);
         
         CustomerManager customerManager = new CustomerManager();
         customerManager.updateCustomerFile(customer);
@@ -383,7 +387,7 @@ public class PaymentForm extends javax.swing.JFrame {
         String bookingId = BookingIDIncrement.getNextBookingID();
 
         // get booking details
-        String customerId = customer.getId();
+        String customerId = customer.getUserId();
         String hallName = payment.getHallName();
         String hallType = payment.getHallType();
         String bookingStartDate = payment.getStartDate();

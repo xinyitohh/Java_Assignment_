@@ -9,6 +9,10 @@ public class Scheduler extends User {
         super(userId, password, name, gender, email, phone, picture, status);
     }
     
+    public Scheduler(String userId, String password, String name, String gender, String email, String phone, String picture, String status, double balance) {
+        super(userId, password, name, gender, email, phone, picture, status, balance);
+    }
+    
     public Scheduler(String userId, String password) { //login
         super(userId, password);
     }

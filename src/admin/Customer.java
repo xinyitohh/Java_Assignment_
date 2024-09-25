@@ -21,6 +21,12 @@ public class Customer extends User {
     }
     
     @Override
+    public String toString() {
+        return this.getUserId() + ";" + this.getPassword() + ";" + this.getName() + ";" + this.getGender() + ";" + this.getEmail() + ";" + this.getPhone() + ";" + this.getPicture() + ";" + this.getStatus() + ";" + this.getBalance();
+    }
+    
+    
+    @Override
     public User login(){
         String fileName = "customer.txt";
         ArrayList<User> userList = FileOperations.readFromFile(fileName);
@@ -56,8 +62,5 @@ public class Customer extends User {
         return false;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" + super.toString() + "}\n";
-    }
+
 }

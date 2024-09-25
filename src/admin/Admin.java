@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Admin extends User {
     
+    public Admin(String userId, String password, String name, String gender, String email, String phone, String picture, String status, double balance) {
+        super(userId, password, name, gender, email, phone, picture, status, balance);
+    }
+    
     public Admin(String userId, String password, String name, String gender, String email, String phone, String picture, String status) {
         super(userId, password, name, gender, email, phone, picture, status);
     }

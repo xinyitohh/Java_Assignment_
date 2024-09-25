@@ -10,6 +10,7 @@ package scheduler;
  *
  * @author yeo yu le
  */
+import admin.User;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.*;
@@ -21,9 +22,16 @@ public class Scheduler_Home extends javax.swing.JFrame{
     /**
      * Creates new form Scheduler
      */
+    private User currentUser = User.getLoggedInUser();
+
+    
+
     public Scheduler_Home() {
+        
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        System.out.println("Current User: " + currentUser); // Check if this is null
+        User.setProfile( lblProfilePic, currentUser);
         //imageSetter.SetImageSize(60, lblHall,lblSchedule);
         
     }
@@ -55,6 +63,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         lblHall = new javax.swing.JLabel();
         lblSchedule = new javax.swing.JLabel();
         lblView = new javax.swing.JLabel();
+        lblProfilePic = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,7 +103,6 @@ public class Scheduler_Home extends javax.swing.JFrame{
             }
         });
 
-
         lblView.setForeground(new java.awt.Color(255, 255, 255));
         lblView.setText("jLabel4");
         lblView.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,33 +111,37 @@ public class Scheduler_Home extends javax.swing.JFrame{
             }
         });
 
+        lblProfilePic.setText("jLabel4");
+
         javax.swing.GroupLayout pnlNavLayout = new javax.swing.GroupLayout(pnlNav);
         pnlNav.setLayout(pnlNavLayout);
         pnlNavLayout.setHorizontalGroup(
             pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavLayout.createSequentialGroup()
                 .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNavLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-
                     .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlNavLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(lblView, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlNavLayout.createSequentialGroup()
                             .addGap(22, 22, 22)
-                            .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlNavLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblHall, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(lblProfilePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNavLayout.setVerticalGroup(
             pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addContainerGap()
+                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addGap(70, 70, 70)
                 .addComponent(lblView)
                 .addContainerGap(181, Short.MAX_VALUE))
@@ -226,7 +238,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -295,6 +307,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblHall;
+    private javax.swing.JLabel lblProfilePic;
     private javax.swing.JLabel lblSchedule;
     private javax.swing.JLabel lblView;
     private javax.swing.JPanel pnlNav;
