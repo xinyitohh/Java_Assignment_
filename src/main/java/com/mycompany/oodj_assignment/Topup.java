@@ -181,7 +181,7 @@ public class Topup extends javax.swing.JFrame {
 
     private void btnTopupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTopupActionPerformed
         double amount = Double.parseDouble(txtTopup.getText());
-        String password = new String(txtPassword.getText());
+        String password = new String(txtPassword.getPassword());
         
         // validate password for topup
         if (customer.getPassword().equals(password)) {
@@ -189,16 +189,16 @@ public class Topup extends javax.swing.JFrame {
             Session.getInstance().setCustomer(customer);
             CustomerManager customerManager = new CustomerManager();
             customerManager.updateCustomerFile(customer);
-            new CustomerDashboard(customer).setVisible(true);
+            new CustomerDashboard().setVisible(true);
             this.dispose();
         } else {
             // show error message
-            javax.swing.JOptionPane.showMessageDialog(this, "Incorrect password!");
+            javax.swing.JOptionPane.showMessageDialog(this, "Incorrect password!"+ customer.getPassword());
         }
     }//GEN-LAST:event_btnTopupActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new CustomerDashboard(customer).setVisible(true);
+        new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     

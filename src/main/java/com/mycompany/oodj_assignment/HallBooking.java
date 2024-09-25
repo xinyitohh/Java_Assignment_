@@ -549,7 +549,7 @@ public class HallBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        new CustomerDashboard(customer).setVisible(true);
+        new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnDashboardActionPerformed
 

@@ -141,9 +141,8 @@ public class Login extends javax.swing.JFrame {
         if (customer != null) {
             // set customer in session (loggedin user)
             Session.getInstance().setCustomer(customer);
-
-            CustomerDashboard dashboard = new CustomerDashboard(customer); 
-            dashboard.setVisible(true);
+ 
+            new CustomerDashboard().setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Invalid ID or Password");
@@ -159,12 +158,12 @@ public class Login extends javax.swing.JFrame {
                 // create and return a Customer object if credentials match
                 return new Customer(
                     data[0],   // userId
+                    data[6],   // password
                     data[1],   // name
+                    data[4],   // gender
                     data[2],   // email
                     data[3],   // phone
-                    data[4],   // gender
                     data[5],   // picture
-                    data[6],   // password
                     Double.parseDouble(data[7]) // balance
                 );
             }

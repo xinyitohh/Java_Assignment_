@@ -240,7 +240,7 @@ public class RaiseIssue extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new CustomerDashboard(customer).setVisible(true);
+        new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 

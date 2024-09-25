@@ -346,7 +346,7 @@ public class MyBookings extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        new CustomerDashboard(customer).setVisible(true);
+        new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
