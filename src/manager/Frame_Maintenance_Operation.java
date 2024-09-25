@@ -107,10 +107,10 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
     };
     
     //------------------------------------------------------------------------------------
-    
+
     public Frame_Maintenance_Operation() throws IOException 
     {
-        
+
         initComponents();
         status_selection("In Progress", "Done", "Closed", "Cancelled", "Pending");
         Function.Populate_Data_Into_Table(filePath, maintance_data, t_1, this);
@@ -503,9 +503,8 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
         {
             String target_ID = (String)CB_ID.getSelectedItem();
             String newValue = "In Progress";
-
-            Function.updateFileData(filePath,target_ID,newValue,maintance_data);
             Function.Change_Frame(this,new Frame_Assign_Staff());
+            Function.updateFileData(filePath,target_ID,newValue,maintance_data);
         } 
         catch (IOException ex) 
         {
