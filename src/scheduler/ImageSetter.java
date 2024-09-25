@@ -28,9 +28,9 @@ public class ImageSetter implements SetImage{
     }
 
     @Override
-    public void SetImageSize(int size, JLabel...label){
+    public void SetImageSize(JLabel...label){
         for (JLabel lbl:label){
-            updateImageDisplay(lbl,size);
+            updateImageDisplay(lbl,image_size);
         }
     }
 }
