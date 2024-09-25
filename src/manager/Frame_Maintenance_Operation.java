@@ -432,6 +432,11 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
 
         CB_ST_2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         CB_ST_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        CB_ST_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_ST_2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(CB_ST_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 100, 270, 60));
 
         CB_ID.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -502,9 +507,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
         try 
         {
             String target_ID = (String)CB_ID.getSelectedItem();
-            String newValue = "In Progress";
             Function.Change_Frame(this,new Frame_Assign_Staff());
-            Function.updateFileData(filePath,target_ID,newValue,maintance_data);
         } 
         catch (IOException ex) 
         {
@@ -593,6 +596,10 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
                 }
         
     }//GEN-LAST:event_Btn_LogoutActionPerformed
+
+    private void CB_ST_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ST_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_ST_2ActionPerformed
 
     /**
      * @param args the command line arguments

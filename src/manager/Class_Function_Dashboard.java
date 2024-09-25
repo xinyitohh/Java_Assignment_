@@ -21,6 +21,11 @@ import javax.swing.table.DefaultTableModel;
 public class Class_Function_Dashboard extends Class_Function
 {
     
+    @Override
+    public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist,String s) throws IOException{}
+
+     //------------------------------------------------------------------------------------
+    
      @Override
     public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException{}
     

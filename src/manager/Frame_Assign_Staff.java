@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class Frame_Assign_Staff extends javax.swing.JFrame implements Interface_Assign
 {
 
+
     public ArrayList<Data_Maintenance> maintance_data = new ArrayList<>(); 
     String filePath =  "issue.txt";
     String file_of_Staff_Path = "scheduler.txt";
@@ -29,7 +30,7 @@ public class Frame_Assign_Staff extends javax.swing.JFrame implements Interface_
     
     
     
-     //------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------
     
     @Override
     public void addDataToComboBox(Data_Maintenance maintance_data) 
@@ -219,13 +220,14 @@ public class Frame_Assign_Staff extends javax.swing.JFrame implements Interface_
                         newValue = (String)CB_S_ID.getSelectedItem();
                         if (target_ID != null)
                         {
-                            Function.updateFileData(filePath, target_ID, newValue, maintance_data);
+                            Function.updateFileData(filePath, target_ID, newValue, maintance_data,"In Progress");
                         } 
                         maintance_data.clear();
                         CB_M_ID.removeAllItems();
                         Function.Populate_Data_Into_Table(filePath, maintance_data, t_1, this);
                         Function.read_file_data(filePath, maintance_data);
                         Function.read_staff_data(file_of_Staff_Path,Arread_staff_data,CB_S_ID);
+                        
                     } 
                     catch (IOException ex) 
                     {

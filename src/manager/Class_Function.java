@@ -12,6 +12,9 @@ import java.util.Collections;
 
 public abstract class Class_Function 
 {
+    public abstract <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist,String s) throws IOException;
+    
+    //------------------------------------------------------------------------------------
     
     public abstract <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException;
 
