@@ -1,0 +1,11 @@
+1;55000;Alice Johnson;2024-01-15
+2;62000;Bob Smith;2024-02-22
+3;47000;Charlie Davis;2024-03-10
+4;70000;Diana Clark;2024-04-05
+5;51000;Eve Adams;2024-05-17
+6;68000;Frank Turner;2024-06-20
+7;54000;Grace Wilson;2024-07-13
+8;68000;Grace Wilson;2024-07-16
+9;54000;Frank Turner;2024-06-25
+10;55000;Alice Johnson;2024-01-26
+11;55000;Alice Johnson;2024-08-08
