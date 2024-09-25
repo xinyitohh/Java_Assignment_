@@ -1,0 +1,3 @@
+Availability Slot;A1;28-09-2024;1:00PM;29-09-2024;3:00PM;null
+Maintenance;B1;06-09-2024;8:00AM;06-09-2024;8:00AM;null
+Availability Slot;B1;26-09-2024;8:00AM;26-09-2024;9:00AM;null
