@@ -69,6 +69,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         lblHall.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblHall.setForeground(new java.awt.Color(255, 255, 255));
         lblHall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
         lblHall.setText("Hall Manager");
         lblHall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblHall.setPreferredSize(new java.awt.Dimension(69, 48));
@@ -82,6 +83,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         lblSchedule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSchedule.setForeground(new java.awt.Color(255, 255, 255));
         lblSchedule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
         lblSchedule.setText("Schedule");
         lblSchedule.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblSchedule.setMaximumSize(new java.awt.Dimension(62, 60));
@@ -93,7 +95,6 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 lblScheduleMouseClicked(evt);
             }
         });
-
 
         lblView.setForeground(new java.awt.Color(255, 255, 255));
         lblView.setText("jLabel4");
@@ -112,7 +113,6 @@ public class Scheduler_Home extends javax.swing.JFrame{
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-
                     .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlNavLayout.createSequentialGroup()
                             .addContainerGap()
@@ -129,7 +129,6 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addGap(70, 70, 70)
                 .addComponent(lblView)
                 .addContainerGap(181, Short.MAX_VALUE))

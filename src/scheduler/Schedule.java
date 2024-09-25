@@ -11,6 +11,7 @@ package scheduler;
  */
 import java.text.ParseException;
 import java.time.LocalTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -149,8 +150,8 @@ public class Schedule implements DataValidation{
         }
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date today = new Date();
-        System.out.println(today);
+        LocalDate now = LocalDate.now();
+        Date today = java.sql.Date.valueOf(now.minusDays(1));
         Date StartDate = null;
         Date EndDate = null;
 

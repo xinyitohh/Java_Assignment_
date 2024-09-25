@@ -43,7 +43,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     public Hall_Availability() {
         initComponents();
 
-        imageSetter.SetImageSize(60, lblHall4,lblSchedule4);
+        imageSetter.SetImageSize(lblHall4,lblSchedule4);
         System.out.println(lblHall4.getHorizontalTextPosition());
         System.out.println(lblSchedule4.getHorizontalTextPosition());
         
@@ -281,7 +281,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         lblHall4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblHall4.setForeground(new java.awt.Color(255, 255, 255));
         lblHall4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHall4.setIcon(new javax.swing.ImageIcon("C:\\Users\\yeo yu le\\OneDrive - Asia Pacific University\\Documents\\NetBeansProjects\\Assignment-Scheduler\\Scheduler_Icon\\hall.png")); // NOI18N
+        lblHall4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
         lblHall4.setText("Hall Manager");
         lblHall4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblHall4.setPreferredSize(new java.awt.Dimension(69, 48));
@@ -290,13 +290,20 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblHall4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHall4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHall4MouseExited(evt);
+            }
         });
 
         lblSchedule4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSchedule4.setForeground(new java.awt.Color(255, 255, 255));
         lblSchedule4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSchedule4.setIcon(new javax.swing.ImageIcon("C:\\Users\\yeo yu le\\OneDrive - Asia Pacific University\\Documents\\NetBeansProjects\\Assignment-Scheduler\\Scheduler_Icon\\schedule icon.png")); // NOI18N
+        lblSchedule4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
         lblSchedule4.setText("Schedule");
+        lblSchedule4.setToolTipText("");
         lblSchedule4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblSchedule4.setMaximumSize(new java.awt.Dimension(62, 60));
         lblSchedule4.setMinimumSize(new java.awt.Dimension(62, 60));
@@ -656,13 +663,10 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         pnlNav4Layout.setHorizontalGroup(
             pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNav4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNav4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlNav4Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
@@ -672,7 +676,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             .addGroup(pnlNav4Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(39, 39, 39)
                 .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -781,6 +785,17 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         hall.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblHall4MouseClicked
+
+    private void lblHall4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseEntered
+        lblHall4.setOpaque(true);
+        lblHall4.setBackground(new Color(125,17,209));
+        lblHall4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); 
+    }//GEN-LAST:event_lblHall4MouseEntered
+
+    private void lblHall4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseExited
+        Color panelColor = pnlNav4.getBackground();
+        lblHall4.setBackground(panelColor);
+    }//GEN-LAST:event_lblHall4MouseExited
 
     /**
      * @param args the command line arguments
