@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package assignment;
+package Manager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +20,8 @@ public class Frame_Assign_Staff extends javax.swing.JFrame implements Interface_
 
     public ArrayList<Data_Maintenance> maintance_data = new ArrayList<>(); 
     String filePath =  "TXT_DATA/sam_love.txt";
-    String file_of_Staff_Path = "TXT_DATA/scheduler.txt";
+    String file_of_Staff_Path = "scheduler.txt";
+
     Class_Function_Assign Function = new Class_Function_Assign();
     public ArrayList<String> Arread_staff_data = new ArrayList<>(); 
     String target_ID;

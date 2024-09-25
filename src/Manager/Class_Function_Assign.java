@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package assignment;
+package Manager;
 
-import assignment.Data_Maintenance;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -13,14 +12,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class Class_Function_Maintenance extends Class_Function
+/**
+ *
+ * @author kairuisam
+ */
+public class Class_Function_Assign extends Class_Function 
 {
-    
-    public boolean status = true;
-    public boolean change = false;
     
     @Override
     public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException
@@ -32,30 +34,9 @@ public class Class_Function_Maintenance extends Class_Function
                 if (item instanceof Data_Maintenance) 
                 {
                     Data_Maintenance md = (Data_Maintenance) item;
-                    if (targetId.equals(md.ID)) {
-                        if (md.Status.equals("Pending") || md.Status.equals("Cancelled")) {
-                            if (newValue.equals("Pending") || newValue.equals("Cancelled")) {
-                                // Allow interchange between Pending and Cancelled
-                                md.setStatus(newValue);
-                                md.setStaff(""); // Reset staff when switching between Pending and Cancelled
-                            } else {
-                                // Switching to any other status
-                                status = false; 
-                                md.setStatus(newValue);
-                                
-                            }
-                        } else {
-                            // Current status is neither Pending nor Cancelled
-                            if (newValue.equals("Pending") || newValue.equals("Cancelled")) {
-                                // Changing to Pending or Cancelled
-                                md.setStaff(""); // Reset staff when changing to Pending or Cancelled
-                                md.setStatus(newValue);
-                            } else {
-                                // Switching to other statuses
-                                md.setStatus(newValue);
-                            }
-                        }
-
+                    if (targetId.equals(md.ID)) 
+                    {
+                        md.setStaff(newValue);
                     }
                     bw.write(md.WriteFile());
                     bw.newLine();
@@ -63,6 +44,7 @@ public class Class_Function_Maintenance extends Class_Function
             }
         }
     }
+    
     //------------------------------------------------------------------------------------
     
     @Override
@@ -97,22 +79,49 @@ public class Class_Function_Maintenance extends Class_Function
         
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
-
-        Data_Maintenance maintence_data;
+        
+        Data_Maintenance md;
         
         for (T item : data)
         {
             
             if (item instanceof Data_Maintenance) 
             {
-                maintence_data = (Data_Maintenance)item;
-
-                interface_.getAfterFilterMaintenanceData().add(maintence_data);
-                interface_.addDataToComboBox(maintence_data);
-                model.addRow(new Object[]{maintence_data.getID(), maintence_data.getIssue(), maintence_data.getCustomer(), maintence_data.getStaff(), maintence_data.getStatus(), maintence_data.getHall()});
-
+                md = (Data_Maintenance)item;
+                if(md.getStaff()=="")
+                {
+                    interface_.addDataToComboBox(md);
+                    model.addRow(new Object[]{md.getID(), md.getIssue(), md.getStatus(), md.getHall(), md.getStaff()});
+                }
             }
         }
         data.clear(); 
+    }
+    
+    //------------------------------------------------------------------------------------
+    
+    public void read_staff_data(String filepath, ArrayList<String> data, JComboBox<String> comboBox) throws FileNotFoundException, IOException 
+    {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filepath)))
+        {
+            String line;
+            DefaultComboBoxModel<String> model = (DefaultComboBoxModel<String>) comboBox.getModel();
+            
+            while ((line = br.readLine()) != null)
+            {
+                String[] parts = line.split(";");
+                
+                if (parts.length > 0)
+                {
+                    String staff_id = parts[0];
+                    data.add(staff_id);
+                    if (model.getIndexOf(staff_id) == -1) 
+                    {
+                        model.addElement(staff_id);
+                    }
+                }
+            }
+        }
     }
 }

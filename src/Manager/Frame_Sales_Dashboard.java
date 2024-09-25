@@ -1,6 +1,8 @@
 
-package assignment;
+package Manager;
 
+import admin.User;
+import admin.Frame_Login;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interface_DashBoard
 {
-    
+    private User currentUser = User.getLoggedInUser();
     public ArrayList<Data_Sales> sales_data = new ArrayList<>();
     public ArrayList<Data_Sales> after_filter_sales_data = new ArrayList<>(); 
     String filePath = "TXT_DATA/sam.txt";;
@@ -502,21 +504,18 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
 
         J_L_7.setBackground(new java.awt.Color(255, 255, 255));
         J_L_7.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        J_L_7.setForeground(new java.awt.Color(0, 0, 0));
         J_L_7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         J_L_7.setText("WEEK");
         jPanel9.add(J_L_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 80, 40));
 
         J_L_8.setBackground(new java.awt.Color(255, 255, 255));
         J_L_8.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        J_L_8.setForeground(new java.awt.Color(0, 0, 0));
         J_L_8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         J_L_8.setText("MONTH");
         jPanel9.add(J_L_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 80, 40));
 
         J_L_9.setBackground(new java.awt.Color(255, 255, 255));
         J_L_9.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        J_L_9.setForeground(new java.awt.Color(0, 0, 0));
         J_L_9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         J_L_9.setText("YEAR");
         jPanel9.add(J_L_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 80, 40));
@@ -554,7 +553,6 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
 
         J_L_10.setBackground(new java.awt.Color(255, 255, 255));
         J_L_10.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        J_L_10.setForeground(new java.awt.Color(0, 0, 0));
         J_L_10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         J_L_10.setText("HALL");
         jPanel9.add(J_L_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 80, 40));

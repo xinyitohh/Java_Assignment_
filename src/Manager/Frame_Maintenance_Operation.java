@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package assignment;
+package Manager;
 
+import admin.Frame_Login;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -18,13 +19,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import admin.User;
 
 public class Frame_Maintenance_Operation extends javax.swing.JFrame implements Interface_Maintenance
 {
-    
+    private User currentUser = User.getLoggedInUser();
     public ArrayList<Data_Maintenance> maintance_data = new ArrayList<>(); 
     public ArrayList<Data_Maintenance> after_filter_maintance_data = new ArrayList<>(); 
-    String filePath = "TXT_DATA/sam_love.txt";;
+    String filePath = "TXT_DATA/sam_love.txt";
     Class_Function_Maintenance Function = new Class_Function_Maintenance();
 
     
@@ -269,7 +271,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Issue", "Customer", "Staff", "Status", "Hall"
+                "ID", "Issue", "Customer ID", "Staff ID", "Status", "Hall ID"
             }
         ) {
             Class[] types = new Class [] {
@@ -287,6 +289,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
                 return canEdit [columnIndex];
             }
         });
+        t_1.getTableHeader().setReorderingAllowed(false);
         t_1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 t_1MouseClicked(evt);

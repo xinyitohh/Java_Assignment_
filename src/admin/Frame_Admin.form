@@ -138,9 +138,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblProfilePic">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\U S E R\Desktop\emopou.jpg"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="images/default.jpg"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -497,9 +494,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblPicture">
                       <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\U S E R\Desktop\emopou.jpg"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="images/default.jpg"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[85, 85]"/>
@@ -1037,9 +1031,6 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblPicture1">
                       <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\U S E R\Desktop\emopou.jpg"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="images/default.jpg"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[85, 85]"/>

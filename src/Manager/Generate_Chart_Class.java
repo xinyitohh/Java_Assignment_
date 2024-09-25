@@ -1,4 +1,4 @@
-package assignment;
+package Manager;
 
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartPanel;

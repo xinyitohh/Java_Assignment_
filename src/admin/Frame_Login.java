@@ -1,7 +1,6 @@
 package admin;
 
 import scheduler.*;
-import assignment.*;
 import customer.*;
 
 import java.awt.Color;
@@ -921,7 +920,7 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
         } else if (user instanceof Admin) {
             return new Frame_Admin();
         } else if (user instanceof Manager) {
-            return new assignment.Frame_Main();
+            return new Manager.Frame_Main();
         } else if (user instanceof Customer) {
             return new customer.CustomerDashboard();
         }

@@ -54,6 +54,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         pnlNav = new javax.swing.JPanel();
         lblHall = new javax.swing.JLabel();
         lblSchedule = new javax.swing.JLabel();
+        lblView = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -93,6 +94,14 @@ public class Scheduler_Home extends javax.swing.JFrame{
             }
         });
 
+        lblView.setForeground(new java.awt.Color(255, 255, 255));
+        lblView.setText("jLabel4");
+        lblView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblViewMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlNavLayout = new javax.swing.GroupLayout(pnlNav);
         pnlNav.setLayout(pnlNavLayout);
         pnlNavLayout.setHorizontalGroup(
@@ -102,9 +111,13 @@ public class Scheduler_Home extends javax.swing.JFrame{
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlNavLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlNavLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblView, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlNavLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNavLayout.setVerticalGroup(
@@ -114,7 +127,9 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(lblView)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(239, 239, 239));
@@ -227,6 +242,11 @@ public class Scheduler_Home extends javax.swing.JFrame{
         this.dispose();
     }//GEN-LAST:event_lblScheduleMouseClicked
 
+    private void lblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
+    }//GEN-LAST:event_lblViewMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +292,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblHall;
     private javax.swing.JLabel lblSchedule;
+    private javax.swing.JLabel lblView;
     private javax.swing.JPanel pnlNav;
     // End of variables declaration//GEN-END:variables
 }

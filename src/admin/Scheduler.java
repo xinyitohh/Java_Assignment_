@@ -1,5 +1,6 @@
 package admin;
 import java.util.ArrayList;
+import scheduler.Scheduler_Home;
 
 
 public class Scheduler extends User {
@@ -23,8 +24,10 @@ public class Scheduler extends User {
 
         for (User u : userList) {
             if (u.getUserId().equals(getUserId())) {
-                if (u.getPassword().equals(getPassword())) {
+                if (u.getPassword().equals(getPassword())) {                    
                     // Login successful
+                    Scheduler_Home s = new Scheduler_Home();
+                    s.setVisible(true);
                     System.out.println("Scheduler logged in: " + getUserId());
                     
                     return u;  // Return user object

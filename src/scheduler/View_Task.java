@@ -6,7 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
+import Manager.Data_Maintenance;
+import java.io.File;
+import admin.User;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,30 +24,29 @@ public class View_Task extends javax.swing.JFrame {
     /**
      * Creates new form View_Task
      */
-    private String name;
-    private ArrayList<Data_Maintenance> issue;
+    private User currentUser = User.getLoggedInUser();
+    private ArrayList<Data_Maintenance> issueData;
     
     public View_Task() {
         initComponents();
-        
+        issueData = new ArrayList<>(); 
         try{
-            issue = ReadMaintenance(fname);
-            
-            for (Data_Maintenance d: issue){
-                cboID.addItem(d.getID());
-            }
-        }
+            ReadMaintenance("issue.txt");
+            LoadIssue();
+        } catch(IOException ex){}
     }
     
-    public static ArrayList<Data_Maintenance> ReadMaintenance(String fname) throws IOException{
-        ArrayList<Data_Maintenance> store = new ArrayList<>();
+    public void ReadMaintenance(String fname) throws IOException{
+        File file = new File(fname);
+        if (! file.exists()){System.out.println("file not found"); return;}
+        else{System.out.println("found");}
         BufferedReader reader = new BufferedReader(new FileReader(fname));
         String line;
-        
+
         while ((line = reader.readLine()) != null){
             String[] part = line.split(";");
-            
-            if (part.length == 6 && part[3].equals(name)){
+
+            if (part.length == 6 && currentUser.getUserId().equals(part[3])){
                 String id = part[0];
                 String issue = part[1];
                 String customer = part[2];
@@ -53,27 +54,24 @@ public class View_Task extends javax.swing.JFrame {
                 String status = part[4];
                 String hall = part[5];
 
-                store.add(new Data_Maintenance(id,issue,customer,staff,status,hall));
+                issueData.add(new Data_Maintenance(id,issue,customer,staff,status,hall));
+                System.out.println(issue);
             }
         }
         reader.close();
-        return store;
+
     }
 
     private void LoadIssue(){
-        try{
-            issue = ReadMaintenance(fname);
+        DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
 
-            DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
-
-            for (Data_Maintenance d : issue){
-                model.addRow(new Object[]{
-                            d.getID(),
-                            d.getIssue,
-                            d.getStatus,
-                            d.getHall()});
-            }
-        } catch (IOException ex){}
+        for (Data_Maintenance d : issueData){
+            model.addRow(new Object[]{
+                        d.getID(),
+                        d.getIssue(),
+                        d.getStatus(),
+                        d.getHall()});
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -232,17 +230,20 @@ public class View_Task extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblIssuePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tblIssuePropertyChange
-        int count = 0;
-        for (Data_Maintenance d:issue){
-            if (d.getStatus().equals("Pending")){
-                count++;
-            }
-        }
-        lblPending.setText(count);
+//        int count = 0;
+//        if (issueData != null){
+//            for (Data_Maintenance d:issueData){
+//                if (d.getStatus().equals("Pending")){
+//                    count++;
+//                }
+//            }
+//        }
+//        else{System.out.println("null");}
+//        lblPending.setText(Integer.toString(count));
     }//GEN-LAST:event_tblIssuePropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for (Data_Maintenance d: issue){
+        for (Data_Maintenance d: issueData){
             if (d.getID().equals(cboID.getSelectedItem().toString())){
                 d.setStatus(cboStatus.getSelectedItem().toString());
             }
