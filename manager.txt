@@ -1,0 +1,3 @@
+M1001;a;Sam;M;sam@gmail.com;0182251763;images/M1001.jpg;active
+M1002;a;Ben;M;ben@gmail.com;0124543567;images/default.jpg;active
+M1003;a;Charlie;M;charlie@gmail.com;0129944831;images/default.jpg;blocked
