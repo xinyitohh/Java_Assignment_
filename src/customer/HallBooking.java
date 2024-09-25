@@ -1,4 +1,4 @@
-package com.mycompany.oodj_assignment;
+package customer;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
@@ -20,6 +20,11 @@ public class HallBooking extends javax.swing.JFrame {
     private double totalPrice;
     private Customer customer;
 
+    public HallBooking() {
+        this.customer = User.getLoggedInUser();
+        initComponents();
+    }
+    
     public HallBooking(Customer customer) {
         this.customer = customer;
         initComponents();

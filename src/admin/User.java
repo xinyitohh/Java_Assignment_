@@ -14,6 +14,7 @@ public abstract class User {
     private String phone;
     private String picture;
     private String status = "active";
+    private double balance;
     private static User loggedInUser;
 
     abstract User login();
@@ -46,6 +47,17 @@ public abstract class User {
         picture.setPreferredSize(new java.awt.Dimension(75, 75));
     }
     
+    public User(String userId, String password, String name, String gender, String email, String phone, String picture, String status, double balance) {
+        this.userId = userId;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.picture = picture;
+        this.status = status;
+        this.balance = balance;
+    }
 
     public User(String userId, String password, String name, String gender, String email, String phone, String picture, String status) {
         this.userId = userId;

@@ -1,4 +1,4 @@
-package com.mycompany.oodj_assignment;
+package customer;
 
 public class Hall {
     private String hallType;
