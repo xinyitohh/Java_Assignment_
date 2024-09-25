@@ -11,7 +11,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     
     private Customer customer;
 
-    public CustomerDashboard(Customer customer) {
+    public CustomerDashboard() {
         this.customer = Session.getInstance().getCustomer();
         initComponents();
         lblBalance.setText(String.format("%.2f", customer.getBalance()));
@@ -348,7 +348,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
             public void run() {
                 Customer customer = Session.getInstance().getCustomer();
                 if (customer != null) {
-                    new CustomerDashboard(customer).setVisible(true);
+                    new CustomerDashboard().setVisible(true);
                 } else {
                     // Handle the case where no customer is set
                     System.out.println("No customer data available.");
