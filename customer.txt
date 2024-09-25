@@ -1,3 +1,3 @@
-C1001;a;George;M;george@gmail.com;0156346656;images/default.jpg;active;500.0
+C1001;a;Dae Rien;M;daerien@gmail.com;0156346656;images/C1001.jpg;active;500.0
 C1002;a;George;M;george@gmail.com;0156346656;images/default.jpg;blocked;0
 C1003;a;Teddy;M;teddy@gmail.com;012358663458;images/default.jpg;active;0
