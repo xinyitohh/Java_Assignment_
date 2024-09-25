@@ -501,6 +501,10 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
     private void Btn_AssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AssignActionPerformed
         try 
         {
+            String target_ID = (String)CB_ID.getSelectedItem();
+            String newValue = "In Progress";
+
+            Function.updateFileData(filePath,target_ID,newValue,maintance_data);
             Function.Change_Frame(this,new Frame_Assign_Staff());
         } 
         catch (IOException ex) 

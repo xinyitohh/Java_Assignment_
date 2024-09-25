@@ -37,7 +37,6 @@ public class Class_Function_Assign extends Class_Function
                     if (targetId.equals(md.ID)) 
                     {
                         md.setStaff(newValue);
-                        System.out.println("yes");
                     }
                     bw.write(md.WriteFile());
                     bw.newLine();

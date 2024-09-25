@@ -1,1 +1,1 @@
-B1060;test;C1004;S1001;Done;Done
+B1060;test;C1004;S1001;In Progress;Closed
