@@ -1,8 +1,0 @@
-com.mycompany.oodj_assignment.CustomerDashboard$1
-com.mycompany.oodj_assignment.CustomerDashboard$2
-com.mycompany.oodj_assignment.CustomerDashboard$3
-com.mycompany.oodj_assignment.CustomerDashboard$4
-com.mycompany.oodj_assignment.CustomerDashboard$5
-com.mycompany.oodj_assignment.CustomerDashboard$6
-com.mycompany.oodj_assignment.CustomerDashboard$7
-com.mycompany.oodj_assignment.CustomerDashboard
