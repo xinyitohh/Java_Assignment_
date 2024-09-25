@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,11 +25,13 @@ public class Class_Function_Dashboard extends Class_Function
     public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException{}
     
     //------------------------------------------------------------------------------------
-    
+
+           
     @Override
     public <T> void read_file_data(String filepath, ArrayList<T> data) throws FileNotFoundException, IOException 
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat targetFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         // Using try-with-resources to ensure BufferedReader is closed after use
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) 
@@ -36,16 +40,22 @@ public class Class_Function_Dashboard extends Class_Function
             while ((line = br.readLine()) != null) 
             {
                 String[] parts = line.split(";");
-
                 try 
                 {
                     if (data instanceof ArrayList<?>) 
                     {
 
+                        Date date = dateFormat.parse(parts[7].trim());
+
+                        // 将 Date 对象格式化为目标字符串格式
+                        String formattedDateStr = targetFormat.format(date);
+
+                        // 再次将格式化后的字符串解析回 Date 对象
+                        Date finalDate = targetFormat.parse(formattedDateStr);
+
                         ArrayList<Data_Sales> salesDataList = (ArrayList<Data_Sales>) data;
-                        Date date = dateFormat.parse(parts[3].trim());
-                        double sales = Double.parseDouble(parts[1]);
-                        Data_Sales s = new Data_Sales(parts[0].trim(), sales, parts[2].trim(), date);
+                        double sales = Double.parseDouble(parts[6]);
+                        Data_Sales s = new Data_Sales(parts[0].trim(), sales, parts[2].trim(), finalDate);
                         salesDataList.add(s);
                     }
                 } 
@@ -56,6 +66,7 @@ public class Class_Function_Dashboard extends Class_Function
             }
         }
     }
+    
     
     //------------------------------------------------------------------------------------
     
