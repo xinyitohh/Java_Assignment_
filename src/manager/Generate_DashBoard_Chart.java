@@ -1,4 +1,4 @@
-package assignment;
+package manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;

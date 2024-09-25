@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package assignment;
+package manager;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author kairuisam
  */
-public interface Interface_Assign extends Interface_All_Of_Manager 
+public interface Interface_Change_Status extends Interface_All_Of_Manager 
 {
     void addDataToComboBox(Data_Maintenance maintance_data);
 
@@ -21,7 +21,6 @@ public interface Interface_Assign extends Interface_All_Of_Manager
     {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
-    
     default public ArrayList<Data_Sales> getAfterFilterSalesData()
     {
         throw new UnsupportedOperationException("Not implemented yet.");
@@ -43,3 +42,5 @@ public interface Interface_Assign extends Interface_All_Of_Manager
     }
     
 }
+
+

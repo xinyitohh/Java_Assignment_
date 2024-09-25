@@ -1,14 +1,14 @@
 package admin;
 
 import scheduler.*;
-<<<<<<< HEAD
+
 import assignment.*;
 import customer.*;
 
-=======
+
 import customer.*;
 import manager.*;
->>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -926,11 +926,7 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
         } else if (user instanceof Admin) {
             return new Frame_Admin();
         } else if (user instanceof Manager) {
-<<<<<<< HEAD
-            return new assignment.Frame_Main();
-=======
             return new manager.Frame_Main();
->>>>>>> 10c6a8e2f9022b9a2c4771f0e6cbc94be079407c
         } else if (user instanceof Customer) {
             return new customer.CustomerDashboard();
         }

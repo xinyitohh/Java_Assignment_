@@ -1,5 +1,5 @@
 
-package assignment;
+package manager;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
