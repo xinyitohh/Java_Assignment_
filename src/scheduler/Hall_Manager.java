@@ -27,7 +27,7 @@ public class Hall_Manager extends javax.swing.JFrame {
      */
     public Hall_Manager() {
         initComponents();
-        imageSetter.SetImageSize(60, lblHall1,lblSchedule1);
+        imageSetter.SetImageSize(lblHall1,lblSchedule1);
      
         checkboxlist.add(cboxSpeaker);
         checkboxlist.add(cboxLight);
@@ -330,6 +330,7 @@ public class Hall_Manager extends javax.swing.JFrame {
         lblHall1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblHall1.setForeground(new java.awt.Color(255, 255, 255));
         lblHall1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHall1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
         lblHall1.setText("Hall Manager");
         lblHall1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblHall1.setPreferredSize(new java.awt.Dimension(69, 48));
@@ -343,6 +344,7 @@ public class Hall_Manager extends javax.swing.JFrame {
         lblSchedule1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSchedule1.setForeground(new java.awt.Color(255, 255, 255));
         lblSchedule1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSchedule1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
         lblSchedule1.setText("Schedule");
         lblSchedule1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblSchedule1.setMaximumSize(new java.awt.Dimension(62, 60));

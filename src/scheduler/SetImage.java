@@ -12,5 +12,6 @@ package scheduler;
 import javax.swing.JLabel;
 
 public interface SetImage {
-    void SetImageSize(int size, JLabel...label);
+    int image_size =35;
+    void SetImageSize(JLabel...label);
 }

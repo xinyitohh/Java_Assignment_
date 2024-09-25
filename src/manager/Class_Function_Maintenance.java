@@ -21,6 +21,11 @@ public class Class_Function_Maintenance extends Class_Function
     
     public boolean status = true;
     public boolean change = false;
+
+    @Override
+    public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist,String s) throws IOException{}
+
+     //------------------------------------------------------------------------------------
     
     @Override
     public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException
@@ -75,13 +80,15 @@ public class Class_Function_Maintenance extends Class_Function
             String line;
             while ((line = br.readLine()) != null) 
             {
-                String[] parts = line.split(";");
+                System.out.println("Input line: " + line);
 
+                String[] parts = line.split(";");
+                
                 if (data instanceof ArrayList<?>) 
                 {
 
                     ArrayList<Data_Maintenance> maintenanceDataList = (ArrayList<Data_Maintenance>) data;
-                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[4].trim());
+                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[5].trim());
                     maintenanceDataList.add(m);
                 }
             }
