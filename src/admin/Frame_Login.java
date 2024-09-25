@@ -1,5 +1,9 @@
 package admin;
 
+import scheduler.*;
+import assignment.*;
+import customer.*;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -913,13 +917,13 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
     
     private JFrame getFrameForUser(User user) {
         if (user instanceof Scheduler) {
-            return new Frame_Admin();
+            return new scheduler.Scheduler_Home();
         } else if (user instanceof Admin) {
             return new Frame_Admin();
         } else if (user instanceof Manager) {
-            return new Frame_Admin();
+            return new assignment.Frame_Main();
         } else if (user instanceof Customer) {
-            return new Frame_Admin();
+            return new customer.CustomerDashboard();
         }
         return null;
     }
