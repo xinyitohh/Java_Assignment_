@@ -20,12 +20,8 @@ public class HallBooking extends javax.swing.JFrame {
     private double totalPrice;
     private Customer customer;
 
-    public HallBooking() {
-        this.customer = User.getLoggedInUser();
-        initComponents();
-    }
     
-    public HallBooking(Customer customer) {
+    public HallBooking() {
         this.customer = customer;
         initComponents();
         loadHallData();
@@ -554,7 +550,7 @@ public class HallBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        new CustomerDashboard(customer).setVisible(true);
+        new CustomerDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnDashboardActionPerformed
 
@@ -633,7 +629,7 @@ public class HallBooking extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Customer customer = Session.getInstance().getCustomer();
-                new HallBooking(customer).setVisible(true);
+                new HallBooking().setVisible(true);
             }
         });
     }

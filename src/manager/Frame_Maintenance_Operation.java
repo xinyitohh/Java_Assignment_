@@ -4,7 +4,7 @@
  */
 package manager;
 
-import admin.Frame_Login;
+import admin.User;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -19,16 +19,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import admin.User;
 
 public class Frame_Maintenance_Operation extends javax.swing.JFrame implements Interface_Maintenance
 {
-    private User currentUser = User.getLoggedInUser();
+
     public ArrayList<Data_Maintenance> maintance_data = new ArrayList<>(); 
     public ArrayList<Data_Maintenance> after_filter_maintance_data = new ArrayList<>(); 
     String filePath = "TXT_DATA/sam_love.txt";
     Class_Function_Maintenance Function = new Class_Function_Maintenance();
-
+    private User currentUser = User.getLoggedInUser();
+    
     
     //------------------------------------------------------------------------------------
     
@@ -585,7 +585,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
                 {
                     currentUser.logout();
                     this.dispose();
-                    Frame_Login login = new Frame_Login();
+                    admin.Frame_Login login = new admin.Frame_Login();
                     login.setVisible(true);
                 }
         
@@ -666,3 +666,4 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
     private javax.swing.JTable t_1;
     // End of variables declaration//GEN-END:variables
 }
+

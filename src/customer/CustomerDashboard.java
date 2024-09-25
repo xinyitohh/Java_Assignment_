@@ -12,12 +12,6 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private Customer customer;
     
     public CustomerDashboard() {
-        initComponents();
-
-
-    }
-    
-    public CustomerDashboard(Customer customer) {
         this.customer = Session.getInstance().getCustomer();
         initComponents();
         lblBalance.setText(String.format("%.2f", customer.getBalance()));
@@ -270,7 +264,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new HallBooking(customer).setVisible(true);
+        new HallBooking().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -354,7 +348,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
             public void run() {
                 Customer customer = Session.getInstance().getCustomer();
                 if (customer != null) {
-                    new CustomerDashboard(customer).setVisible(true);
+                    new CustomerDashboard().setVisible(true);
                 } else {
                     // Handle the case where no customer is set
                     System.out.println("No customer data available.");

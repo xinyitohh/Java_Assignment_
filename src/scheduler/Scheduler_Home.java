@@ -94,6 +94,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
             }
         });
 
+
         lblView.setForeground(new java.awt.Color(255, 255, 255));
         lblView.setText("jLabel4");
         lblView.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,6 +112,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                     .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlNavLayout.createSequentialGroup()
                             .addContainerGap()
@@ -127,6 +129,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
                 .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addGap(70, 70, 70)
                 .addComponent(lblView)
                 .addContainerGap(181, Short.MAX_VALUE))
@@ -242,6 +245,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         this.dispose();
     }//GEN-LAST:event_lblScheduleMouseClicked
 
+
     private void lblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMouseClicked
         View_Task view = new View_Task();
         view.setVisible(true);
@@ -278,7 +282,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Scheduler_Home().setVisible(true);
+//                new Scheduler_Home().setVisible(true);
             }
         });
     }

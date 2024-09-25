@@ -1,8 +1,11 @@
 package admin;
 
 import scheduler.*;
+import manager.*;
+import customer.*;
 import customer.*;
 import manager.*;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;

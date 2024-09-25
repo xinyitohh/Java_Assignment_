@@ -24,8 +24,10 @@ public class View_Task extends javax.swing.JFrame {
     /**
      * Creates new form View_Task
      */
-    private User currentUser = User.getLoggedInUser();
+
+    private String name;
     private ArrayList<Data_Maintenance> issueData;
+    private User currentUser = User.getLoggedInUser();
     
     public View_Task() {
         initComponents();
@@ -55,7 +57,6 @@ public class View_Task extends javax.swing.JFrame {
                 String hall = part[5];
 
                 issueData.add(new Data_Maintenance(id,issue,customer,staff,status,hall));
-                System.out.println(issue);
             }
         }
         reader.close();
@@ -73,6 +74,7 @@ public class View_Task extends javax.swing.JFrame {
                         d.getHall()});
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -241,7 +243,7 @@ public class View_Task extends javax.swing.JFrame {
 //        else{System.out.println("null");}
 //        lblPending.setText(Integer.toString(count));
     }//GEN-LAST:event_tblIssuePropertyChange
-
+                                 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         for (Data_Maintenance d: issueData){
             if (d.getID().equals(cboID.getSelectedItem().toString())){
