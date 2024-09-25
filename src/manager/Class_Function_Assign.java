@@ -23,6 +23,30 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Class_Function_Assign extends Class_Function 
 {
+
+    @Override
+    public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist,String s) throws IOException
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filepath))) 
+        {
+            for (T item : arraylist) 
+            {
+                if (item instanceof Data_Maintenance) 
+                {
+                    Data_Maintenance md = (Data_Maintenance) item;
+                    if (targetId.equals(md.ID)) 
+                    {
+                        md.setStaff(newValue);
+                        md.setStatus(s);
+                    }
+                    bw.write(md.WriteFile());
+                    bw.newLine();
+                }
+            }
+        }
+    }
+    
+    //------------------------------------------------------------------------------------
     
     @Override
     public <T> void updateFileData(String filepath, String targetId, String newValue, ArrayList<T> arraylist) throws IOException
@@ -58,12 +82,12 @@ public class Class_Function_Assign extends Class_Function
             while ((line = br.readLine()) != null) 
             {
                 String[] parts = line.split(";");
-
+                
                 if (data instanceof ArrayList<?>) 
                 {
 
                     ArrayList<Data_Maintenance> maintenanceDataList = (ArrayList<Data_Maintenance>) data;
-                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[4].trim());
+                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[5].trim());
                     maintenanceDataList.add(m);
                 }
             }
