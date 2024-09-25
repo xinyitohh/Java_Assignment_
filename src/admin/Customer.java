@@ -8,6 +8,10 @@ public class Customer extends User {
         super(userId, password, name, gender, email, phone, picture, status);
     }
     
+    public Customer(String userId, String password, String name, String gender, String email, String phone, String picture, String status, double balance) {
+        super(userId, password, name, gender, email, phone, picture, status, balance);
+    }
+    
     public Customer(String userId, String password) { //login
         super(userId, password);
     }

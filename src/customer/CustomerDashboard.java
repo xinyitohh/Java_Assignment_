@@ -1,5 +1,5 @@
 
-package com.mycompany.oodj_assignment;
+package customer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +10,13 @@ import javax.swing.JOptionPane;
 public class CustomerDashboard extends javax.swing.JFrame {
     
     private Customer customer;
+    
+    public CustomerDashboard() {
+        initComponents();
 
+
+    }
+    
     public CustomerDashboard(Customer customer) {
         this.customer = Session.getInstance().getCustomer();
         initComponents();

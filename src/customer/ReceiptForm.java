@@ -1,4 +1,4 @@
-package com.mycompany.oodj_assignment;
+package customer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

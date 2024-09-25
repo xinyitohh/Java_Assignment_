@@ -1,5 +1,5 @@
 
-package com.mycompany.oodj_assignment;
+package customer;
 import java.awt.Component;
 import java.io.*;
 import javax.swing.ButtonGroup;

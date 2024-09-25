@@ -1,4 +1,4 @@
-package com.mycompany.oodj_assignment;
+package customer;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
