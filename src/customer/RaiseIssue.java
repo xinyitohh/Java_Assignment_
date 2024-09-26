@@ -249,7 +249,8 @@ public class RaiseIssue extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new ViewIssue().setVisible(true);
+        //new ViewIssue().setVisible(true);
+        new manager.Cus_View_Respond().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     

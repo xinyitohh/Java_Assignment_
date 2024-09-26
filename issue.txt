@@ -1,2 +1,5 @@
-B1060;test;C1004;S1001;In Progress;A1
-B1060;test;C1004;S1001;In Progress;A1
+B1060;test;Cancelled;S1001;In Progress;A1
+B1060;test;Cancelled;S1001;In Progress;A1
+B1060;aa;Cancelled;;Pending;A1
+B1060;aa;C1001;;Pending;A1
+B1060;qq;C1001;;Pending;A1
