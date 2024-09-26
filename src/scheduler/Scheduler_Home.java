@@ -299,7 +299,7 @@ public class Scheduler_Home extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new Scheduler_Home().setVisible(true);
+                new Scheduler_Home().setVisible(true);
             }
         });
     }
