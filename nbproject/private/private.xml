@@ -1,119 +1,41 @@
-<<<<<<< HEAD
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/HallBooking.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Frame_Login.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/issue.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Customer.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/Hall_Availability_Operation.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/booking.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/scheduler.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/MyProfile.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/FileOperations.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Scheduler.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/CustomerDashboard.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/Hall_Availability.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/FileManager.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Manager.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/ViewIssue.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Admin.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/Payment.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/Topup.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/BookingIDIncrement.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/CustomerManager.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Frame_Maintenance_Operation.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/RaiseIssue.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Frame_Main.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/User.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Frame_Comfirm.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/Hall_Manager.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/ReceiptForm.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/Schedule.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/View_Task.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/MyBookings.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/scheduler/Scheduler_Home.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/User.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Class_Function_Dashboard.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/admin.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/customer/PaymentForm.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/customer.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/admin/Frame_Admin.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/manager.txt</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Frame_Sales_Dashboard.java</file>
-            <file>file:/C:/Users/U%20S%20E%20R/Desktop/admin_latest/src/manager/Cus_View_Respond.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/issue.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/Admin.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/SetImage.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/Schedule.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Class_Function_Dashboard.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Frame_Maintenance_Operation.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/customer.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/FileOperation.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/User.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/Main.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/customer/FileManager.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/View_Task.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Frame_Sales_Dashboard.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Hall.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/Frame_Admin.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Hall_Manager.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Schedule.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/customer/HallBooking.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/ImageSetter.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/nbproject/private/private.xml</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Frame_Comfirm.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/Scheduler.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/DataValidation.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/scheduler_id.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Hall_Availability_Operation.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/scheduler.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/customer_id.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Class_Function_Maintenance.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/manager/Class_Function.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Scheduler_Home.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/manager.txt</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/admin/Frame_Login.java</file>
+            <file>file:/C:/Users/yeo%20yu%20le/Downloads/assignment_latest_FINALLL_SHARE_1/assignment_latest_FINALLL_SHARE_1/src/scheduler/Hall_Availability.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Assign_Staff.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Assign.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/scheduler.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Maintenance_Operation.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/issue.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Sales_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Generate_Chart_Class.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Cus_View_Respond.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Comfirm.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking_id.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Maintenance.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function.java</file>
-        </group>
-    </open-files>
-</project-private>
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Assign_Staff.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Assign.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/scheduler.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Maintenance_Operation.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/issue.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Sales_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Generate_Chart_Class.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Cus_View_Respond.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Comfirm.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking_id.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Maintenance.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function.java</file>
-        </group>
-    </open-files>
-</project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Assign_Staff.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Assign.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/scheduler.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Maintenance_Operation.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/issue.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Sales_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Dashboard.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Generate_Chart_Class.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Cus_View_Respond.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Frame_Comfirm.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/booking_id.txt</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function_Maintenance.java</file>
-            <file>file:/C:/Users/kairui/Downloads/admin_latest_copy/src/manager/Class_Function.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> origin/master

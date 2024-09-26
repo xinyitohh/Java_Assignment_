@@ -318,6 +318,7 @@ public class Hall_Availability_Operation extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboScheduleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboScheduleTypeActionPerformed
@@ -362,23 +363,21 @@ public class Hall_Availability_Operation extends javax.swing.JFrame {
         String remark = txtfRemarks.getText();
         if (remark.equals("")){remark = null;}
         
-        validater = new Schedule(type,hallName,start_date,start_time,end_date,end_time,remark);
 
+        validater = new Schedule(type,hallName,start_date,start_time,end_date,end_time,remark,position);
+        
         if (validater.ValidateData()){
-            FileOperation.DeleteFile("Schedule.txt");
-            for (Schedule sc : schedule){
-                if (sc.equals(schedule.get(position))){
-                    sc.setSchedule_Type(type);
-                    sc.setHall_Name(hallName);
-                    sc.setStart_Date(start_date);
-                    sc.setEnd_Date(end_date);
-                    sc.setStart_Time(start_time);
-                    sc.setEnd_Time(end_time);
-                    sc.setRemarks(remark);
-                }
-                Schedule s = new Schedule(sc.getSchedule_Type(),sc.getHall_Name(),sc.getStart_Date(),sc.getStart_Time(),sc.getEnd_Date(),sc.getEnd_Time(),sc.getRemarks());
-                s.WriteSchedule();
-            }
+            Schedule editedRow = schedule.get(position);
+            
+            editedRow.setSchedule_Type(type);
+            editedRow.setHall_Name(hallName);
+            editedRow.setStart_Date(start_date);
+            editedRow.setStart_Time(start_time);
+            editedRow.setEnd_Date(end_date);
+            editedRow.setEnd_Time(end_time);
+            editedRow.setRemarks(remark);
+            
+            FileOperation.FileWriting("Schedule.txt", schedule);
             JOptionPane.showMessageDialog(null, "Data edited successfully");
             this.dispose();
             windowClosing();

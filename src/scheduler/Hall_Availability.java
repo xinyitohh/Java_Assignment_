@@ -24,6 +24,8 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Collections;
 import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -84,9 +86,12 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
 
         for (Date d : dateList) {
-            Date today = new Date();
+            // Remove the time in date for better comparison
+            LocalDate today = LocalDate.now();
+            LocalDate dateInList = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            
             // Filter the data before todat only
-            if (!d.before(today)) { 
+            if (!dateInList.isBefore(today)) { 
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(d);
                 int scheduleMonth = cal.get(Calendar.MONTH);
@@ -787,14 +792,11 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     }//GEN-LAST:event_lblHall4MouseClicked
 
     private void lblHall4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseEntered
-        lblHall4.setOpaque(true);
-        lblHall4.setBackground(new Color(125,17,209));
-        lblHall4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); 
+        ImageSetter.SetLabelMouseEnter(lblHall4);
     }//GEN-LAST:event_lblHall4MouseEntered
 
     private void lblHall4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseExited
-        Color panelColor = pnlNav4.getBackground();
-        lblHall4.setBackground(panelColor);
+        ImageSetter.SetLabelMouseExit(lblHall4,pnlNav4);
     }//GEN-LAST:event_lblHall4MouseExited
 
     /**

@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import manager.Data_Maintenance;
+import manager.Class_Function_Maintenance;
 import java.io.File;
 import admin.User;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -33,46 +36,31 @@ public class View_Task extends javax.swing.JFrame {
         initComponents();
         issueData = new ArrayList<>(); 
         try{
-            ReadMaintenance("issue.txt");
+            FileOperation file = new FileOperation();
+            issueData = file.ReadMaintenance("issue.txt");
+            for (Data_Maintenance d:issueData){cboID.addItem(d.getID());}
             LoadIssue();
         } catch(IOException ex){}
     }
     
-    public void ReadMaintenance(String fname) throws IOException{
-        File file = new File(fname);
-        if (! file.exists()){System.out.println("file not found"); return;}
-        else{System.out.println("found");}
-        BufferedReader reader = new BufferedReader(new FileReader(fname));
-        String line;
-
-        while ((line = reader.readLine()) != null){
-            String[] part = line.split(";");
-
-            if (part.length == 6 && currentUser.getUserId().equals(part[3])){
-                String id = part[0];
-                String issue = part[1];
-                String customer = part[2];
-                String staff = part[3];
-                String status = part[4];
-                String hall = part[5];
-
-                issueData.add(new Data_Maintenance(id,issue,customer,staff,status,hall));
-            }
-        }
-        reader.close();
-
-    }
 
     private void LoadIssue(){
         DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
-
+        int count = 0;
+        
         for (Data_Maintenance d : issueData){
             model.addRow(new Object[]{
                         d.getID(),
                         d.getIssue(),
                         d.getStatus(),
                         d.getHall()});
+            if (d.getStatus().equals("In Progress")){
+                count++;
+            }
         }
+        lblPending.setText(Integer.toString(count));
+
+        
     }
 
     /**
@@ -97,7 +85,7 @@ public class View_Task extends javax.swing.JFrame {
         cboID = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         cboStatus = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,11 +99,6 @@ public class View_Task extends javax.swing.JFrame {
                 "id", "issue", "status", "hall"
             }
         ));
-        tblIssue.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tblIssuePropertyChange(evt);
-            }
-        });
         jScrollPane1.setViewportView(tblIssue);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -126,7 +109,6 @@ public class View_Task extends javax.swing.JFrame {
         jLabel2.setText("Pending Job :");
 
         lblPending.setForeground(new java.awt.Color(153, 0, 0));
-        lblPending.setText("fsaf");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Task Reporter", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
@@ -136,16 +118,16 @@ public class View_Task extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Status");
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Complete" }));
+        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Done" }));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("Update");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setBackground(new java.awt.Color(204, 204, 204));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 102, 0));
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -163,7 +145,7 @@ public class View_Task extends javax.swing.JFrame {
                     .addComponent(cboID, 0, 136, Short.MAX_VALUE)
                     .addComponent(cboStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
@@ -181,7 +163,7 @@ public class View_Task extends javax.swing.JFrame {
                             .addComponent(cboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -230,28 +212,18 @@ public class View_Task extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblIssuePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tblIssuePropertyChange
-//        int count = 0;
-//        if (issueData != null){
-//            for (Data_Maintenance d:issueData){
-//                if (d.getStatus().equals("Pending")){
-//                    count++;
-//                }
-//            }
-//        }
-//        else{System.out.println("null");}
-//        lblPending.setText(Integer.toString(count));
-    }//GEN-LAST:event_tblIssuePropertyChange
                                  
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for (Data_Maintenance d: issueData){
-            if (d.getID().equals(cboID.getSelectedItem().toString())){
-                d.setStatus(cboStatus.getSelectedItem().toString());
-            }
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        Class_Function_Maintenance function = new Class_Function_Maintenance();
+        try {
+            function.updateFileData("issue.txt",cboID.getSelectedItem().toString() ,cboStatus.getSelectedItem().toString(), issueData);
+        } catch (IOException ex) {
+            Logger.getLogger(View_Task.class.getName()).log(Level.SEVERE, null, ex);
         }
+        DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
+        model.setRowCount(0);
         LoadIssue();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,9 +261,9 @@ public class View_Task extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cboID;
     private javax.swing.JComboBox<String> cboStatus;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
