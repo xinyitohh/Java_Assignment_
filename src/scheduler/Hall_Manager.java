@@ -708,6 +708,7 @@ public class Hall_Manager extends javax.swing.JFrame {
     private void lblView12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseClicked
         View_Task view = new View_Task();
         view.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblView12MouseClicked
 
     private void lblSchedule1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseEntered
