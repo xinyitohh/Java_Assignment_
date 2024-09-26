@@ -31,15 +31,17 @@ public class Scheduler_Home extends javax.swing.JFrame{
         System.out.println("Current User: " + currentUser); // Check if this is null
         User.setProfile( lblProfilePic, currentUser);
         imageSetter.SetImageSize(lblHall1,lblSchedule1,lblView12);
-//        try{
-//            FileOperation file = new FileOperation();
-//            maintenance = file.ReadMaintenance("issue.txt");
-//            int count = 0;
-//            for (Data_Maintenance d: maintenance){
-//                    count++;
-//            }
-//            lblPending.setText(Integer.toString(count));
-//        } catch(IOException ex){}   
+        lblHall1.setText("<html>&nbsp;&nbsp;Hall<br>Manager</html>");
+        lblView12.setText("<html>View<br>Task</html>");
+        try{
+            FileOperation file = new FileOperation();
+            maintenance = file.ReadMaintenance("issue.txt");
+            int count = 0;
+            for (Data_Maintenance d: maintenance){
+                    count++;
+            }
+            lblPending.setText(Integer.toString(count));
+        } catch(IOException ex){}   
     }
     
     /**
@@ -124,6 +126,12 @@ public class Scheduler_Home extends javax.swing.JFrame{
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblHall1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHall1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHall1MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout pnlNavLayout = new javax.swing.GroupLayout(pnlNav);
@@ -141,18 +149,18 @@ public class Scheduler_Home extends javax.swing.JFrame{
                             .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         pnlNavLayout.setVerticalGroup(
             pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblProfilePic)
-                .addGap(81, 81, 81)
+                .addGap(87, 87, 87)
                 .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(48, 48, 48)
                 .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(lblView12)
                 .addContainerGap())
         );
@@ -165,6 +173,17 @@ public class Scheduler_Home extends javax.swing.JFrame{
 
         lblPending.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblPending.setForeground(new java.awt.Color(102, 102, 255));
+        lblPending.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPendingMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblPendingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblPendingMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -281,14 +300,14 @@ public class Scheduler_Home extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(437, Short.MAX_VALUE))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,6 +391,28 @@ public class Scheduler_Home extends javax.swing.JFrame{
         hall.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblStartSchedulingMouseClicked
+
+    private void lblPendingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPendingMouseEntered
+        lblPending.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblPendingMouseEntered
+
+    private void lblPendingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPendingMouseExited
+        lblPending.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_lblPendingMouseExited
+
+    private void lblHall1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall1MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblHall1);
+    }//GEN-LAST:event_lblHall1MouseEntered
+
+    private void lblHall1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall1MouseExited
+        ImageSetter.SetLabelMouseExit(lblHall1, pnlNav);
+    }//GEN-LAST:event_lblHall1MouseExited
+
+    private void lblPendingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPendingMouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblPendingMouseClicked
 
 
     /**

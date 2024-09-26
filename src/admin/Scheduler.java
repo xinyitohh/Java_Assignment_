@@ -30,8 +30,6 @@ public class Scheduler extends User {
             if (u.getUserId().equals(getUserId())) {
                 if (u.getPassword().equals(getPassword())) {                    
                     // Login successful
-                    Scheduler_Home s = new Scheduler_Home();
-                    s.setVisible(true);
                     System.out.println("Scheduler logged in: " + getUserId());
                     
                     return u;  // Return user object
