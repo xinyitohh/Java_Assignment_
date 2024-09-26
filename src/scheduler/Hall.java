@@ -19,6 +19,7 @@ public class Hall extends FileOperation implements DataValidation{
     private String Capacity;
     private String Equipment;
     private ArrayList<Hall> hallData;
+    private int index;
 
     public Hall() {
         
@@ -66,6 +67,18 @@ public class Hall extends FileOperation implements DataValidation{
     public void setHallData(ArrayList<Hall> hallData) {
         this.hallData = hallData;
     }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+    
+
+    @Override
+    public String toString() {
+        return  HallType + ";" + HallName + ";" + Capacity + ";" + Equipment;
+    }
+    
+    
     
     public void WriteHall(){
         ArrayList<String> hall = new ArrayList<>();
@@ -111,14 +124,16 @@ public class Hall extends FileOperation implements DataValidation{
             message.setLength(message.length() - 1);
             JOptionPane.showMessageDialog(null, "Please complete the selection for" + message + ". Thank You", "Warning", JOptionPane.WARNING_MESSAGE);            
             valid = false;
-        }
+        }        
         
-        for (Hall h:hallData){            
-            if ((this.HallName != null && HallName.equals(h.getHallName())) && !h.equals(this)){
-                JOptionPane.showMessageDialog(null, "The hall information already exists. Please try again", "Hall Info Duplication", JOptionPane.ERROR_MESSAGE);
-                valid = false;
-                break;
-            }
+        for (int i = 0; i < hallData.size(); i++){
+            Hall h = hallData.get(i);
+            if (i == index)continue;
+                if ((this.HallName != null && HallName.equals(h.getHallName())) && !h.equals(this)){
+                    JOptionPane.showMessageDialog(null, "The hall information already exists. Please try again", "Hall Info Duplication", JOptionPane.ERROR_MESSAGE);
+                    valid = false;
+                    break;
+                }
         }        
         return valid;
     }

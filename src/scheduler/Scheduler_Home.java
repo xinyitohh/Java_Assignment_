@@ -28,7 +28,6 @@ public class Scheduler_Home extends javax.swing.JFrame{
     public Scheduler_Home() {        
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        System.out.println("Current User: " + currentUser); // Check if this is null
         User.setProfile( lblProfilePic, currentUser);
         imageSetter.SetImageSize(lblHall1,lblSchedule1,lblView12);
         lblHall1.setText("<html>&nbsp;&nbsp;Hall<br>Manager</html>");

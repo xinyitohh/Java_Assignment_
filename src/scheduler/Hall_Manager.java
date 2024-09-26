@@ -48,6 +48,11 @@ public class Hall_Manager extends javax.swing.JFrame {
         LoadHallTable("");
         Hall hall = new Hall();
         hall.LoadHallName(cboHallName);
+        try{
+            hallData = FileOperation.ReadHall("hall.txt");
+            LoadHallTable("");
+        }
+        catch(IOException ex){}
     }
 
     /**
@@ -268,31 +273,26 @@ public class Hall_Manager extends javax.swing.JFrame {
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlNav13Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(lblProfilePic4)))
+                        .addComponent(lblProfilePic4))
+                    .addGroup(pnlNav13Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlNav13Layout.createSequentialGroup()
-                    .addGap(7, 7, 7)
-                    .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(14, Short.MAX_VALUE)))
         );
         pnlNav13Layout.setVerticalGroup(
             pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNav13Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(lblProfilePic4)
-                .addGap(189, 189, 189)
+                .addGap(91, 91, 91)
+                .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(lblView12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlNav13Layout.createSequentialGroup()
-                    .addGap(131, 131, 131)
-                    .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(389, Short.MAX_VALUE)))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 255));
@@ -548,20 +548,20 @@ public class Hall_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_cboHallTypeActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        DataValidation validater = SettingData();       
+        DataValidation validater = SettingData(-1);       
 
         if (validater.ValidateData()){
+            System.out.println("validate");
             String hallType = cboHallType.getSelectedItem().toString();
             String hallName = txtHallName.getText();
             String capacity = txtCapacity.getText();
             String equipment = AnyCheckboxSelected();
 
-            Hall hall = new Hall(hallType, hallName, capacity, equipment);
-            hall.WriteHall();
-            
+            hallData.add(new Hall(hallType, hallName, capacity, equipment));
+            FileOperation.FileWriting("hall.txt", hallData);
             LoadHallTable(""); 
             cboHallName.removeAllItems();
-            hall.LoadHallName(cboHallName);
+            new Hall().LoadHallName(cboHallName);
         }
         
         
@@ -599,27 +599,25 @@ public class Hall_Manager extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         String key = cboHallName.getSelectedItem().toString();
-       
-        DataValidation validater = SettingData();
-        
-        if (validater.ValidateData()){
-            FileOperation.DeleteFile("hall.txt");
-            
-            for (Hall h:hallData){
-                if (key.equals(h.getHallName())){
+                
+        for (int i =0; i < hallData.size(); i++){
+            Hall h = hallData.get(i);
+            if (key.equals(h.getHallName())){
+                DataValidation validater = SettingData(i);
+                if (validater.ValidateData()){
                     h.setHallType(cboHallType.getSelectedItem().toString());
                     h.setHallName(txtHallName.getText());
                     h.setCapacity(txtCapacity.getText());
                     h.setEquipment(AnyCheckboxSelected());
                 }
-                Hall hall = new Hall(h.getHallType(),h.getHallName(),h.getCapacity(),h.getEquipment());
-                hall.WriteHall();
             }
-            LoadHallTable("");
-            cboHallName.removeAllItems();
-            Hall hall_operate = new Hall();
-            hall_operate.LoadHallName(cboHallName);
         }
+
+        FileOperation.FileWriting("hall.txt", hallData);
+        LoadHallTable("");
+        cboHallName.removeAllItems();
+        Hall hall_operate = new Hall();
+        hall_operate.LoadHallName(cboHallName);
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void cboHallNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboHallNameActionPerformed
@@ -658,19 +656,14 @@ public class Hall_Manager extends javax.swing.JFrame {
 
         int confirm = JOptionPane.showConfirmDialog(null, "You are going to delete '" + key + "'. Do you confirm?", "Confirmation", JOptionPane.YES_NO_OPTION);
         
-        if (confirm == JOptionPane.YES_OPTION){
-            FileOperation.DeleteFile("hall.txt");        
+        if (confirm == JOptionPane.YES_OPTION){      
             for (int i = 0; i < hallData.size(); i++) {
                 Hall h = hallData.get(i);
                 if (key.equals(h.getHallName())) {
                     hallData.remove(i);
-                    i--;  // Decrease the index after removal to prevent skipping elements
-                } else {
-                    Hall hall = new Hall(h.getHallType(), h.getHallName(), h.getCapacity(), h.getEquipment());
-                    hall.WriteHall();
                 }
             }
-            
+            FileOperation.FileWriting("hall.txt", hallData);
             JOptionPane.showMessageDialog(null, "The data has been deleted successfully");
             
             LoadHallTable("");
@@ -743,38 +736,32 @@ public class Hall_Manager extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private Hall SettingData(){
+    private Hall SettingData(int index){
         Hall hall = new Hall();
         hall.setHallType(cboHallType.getSelectedItem().toString());
         hall.setHallName(txtHallName.getText());
         hall.setCapacity(txtCapacity.getText());
         hall.setEquipment(AnyCheckboxSelected());
         hall.setHallData(hallData);
+        hall.setIndex(index);
         
         return hall;
     }
     
     private void LoadHallTable(String type){       
-        try {
-            hallData = FileOperation.ReadHall("hall.txt");
-            
-            DefaultTableModel model = (DefaultTableModel)tblHall.getModel();
-            
-            model.setRowCount(0);
-                 
-            for (Hall h: hallData){
-                if (type.isEmpty() || h.getHallType().equals(type)){
-                    model.addRow(new Object[]{
-                        h.getHallType(),
-                        h.getHallName(),
-                        h.getCapacity(),
-                        h.getEquipment()                    
-                    });
-                }
+        DefaultTableModel model = (DefaultTableModel)tblHall.getModel();
+
+        model.setRowCount(0);
+
+        for (Hall h: hallData){
+            if (type.isEmpty() || h.getHallType().equals(type)){
+                model.addRow(new Object[]{
+                    h.getHallType(),
+                    h.getHallName(),
+                    h.getCapacity(),
+                    h.getEquipment()                    
+                });
             }
-        } catch (IOException ex) {
-            System.out.println(ex);
-            ex.printStackTrace();
         }
     }
     

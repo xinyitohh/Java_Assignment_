@@ -292,7 +292,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
 
         pnlNav4.setBackground(new java.awt.Color(37, 5, 62));
 
-        lblHall4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblHall4.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         lblHall4.setForeground(new java.awt.Color(255, 255, 255));
         lblHall4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHall4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
@@ -312,7 +312,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             }
         });
 
-        lblSchedule4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSchedule4.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         lblSchedule4.setForeground(new java.awt.Color(255, 255, 255));
         lblSchedule4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSchedule4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
@@ -363,9 +363,10 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                     .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblProfilePic4)
-                        .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlNav4Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(lblProfilePic4))
+                    .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNav4Layout.setVerticalGroup(
@@ -377,7 +378,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                 .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(42, 42, 42)
                 .addComponent(lblView12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,7 +621,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFilterReset, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
@@ -669,7 +670,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         );
         pnlButtonLayout.setVerticalGroup(
             pnlButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 608, Short.MAX_VALUE)
         );
 
         scrSchedule.setViewportView(pnlButton);
@@ -702,9 +703,10 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(92, 92, 92)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,7 +723,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                 .addComponent(lblRemark2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -729,8 +731,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scrSchedule))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -889,10 +890,6 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnFilterReset;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnLogout1;
-    private javax.swing.JButton btnLogout2;
-    private javax.swing.JButton btnLogout3;
-    private javax.swing.JButton btnLogout4;
     private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cboEndHour;
     private javax.swing.JComboBox<String> cboFilterHallName;
@@ -918,33 +915,13 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblHall1;
-    private javax.swing.JLabel lblHall2;
-    private javax.swing.JLabel lblHall3;
     private javax.swing.JLabel lblHall4;
-    private javax.swing.JLabel lblHall5;
-    private javax.swing.JLabel lblProfilePic;
-    private javax.swing.JLabel lblProfilePic1;
-    private javax.swing.JLabel lblProfilePic2;
-    private javax.swing.JLabel lblProfilePic3;
     private javax.swing.JLabel lblProfilePic4;
     private javax.swing.JLabel lblRemark2;
-    private javax.swing.JLabel lblSchedule1;
-    private javax.swing.JLabel lblSchedule2;
-    private javax.swing.JLabel lblSchedule3;
     private javax.swing.JLabel lblSchedule4;
-    private javax.swing.JLabel lblSchedule5;
     private javax.swing.JLabel lblView12;
-    private javax.swing.JLabel lblView13;
-    private javax.swing.JLabel lblView14;
-    private javax.swing.JLabel lblView15;
-    private javax.swing.JLabel lblView16;
     private com.toedter.calendar.JMonthChooser mthMonth;
     private javax.swing.JPanel pnlButton;
-    private javax.swing.JPanel pnlNav;
-    private javax.swing.JPanel pnlNav1;
-    private javax.swing.JPanel pnlNav2;
-    private javax.swing.JPanel pnlNav3;
     private javax.swing.JPanel pnlNav4;
     private javax.swing.JPanel pnlStart2;
     private javax.swing.JScrollPane scrSchedule;

@@ -1,5 +1,2 @@
-Banquet Hall;B1;300;[Stage Ligthing]
-Auditorium;A1;1000;[Speakers]
-Meeting Room;M1;30;[Speakers]
-Meeting Room;M2;30;[Speakers,Projector,Microphone]
-Meeting Room;M3;30;[Speakers,Stage Ligthing,Projector,Lectern,Microphone,Whiteboard]
+Banquet Hall;d;300;[Stage Ligthing,Lectern,Whiteboard]
+Auditorium;fd;1000;[Lectern]
