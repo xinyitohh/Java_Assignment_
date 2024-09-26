@@ -28,23 +28,27 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-
+import admin.User;
 public class Hall_Availability extends javax.swing.JFrame implements EditListener{
     /**
      * Creates new form Hall_Availability
      */
+    
+    private User currentUser = User.getLoggedInUser();
     JButton button;
     ArrayList<Schedule> schedule;
     ArrayList<JPanel> panelObj = new ArrayList<>();
     ArrayList<JLabel> labelObj = new ArrayList<>();
     private DataValidation validater;
     private SetImage imageSetter = new ImageSetter();
+    
+    
 
     
     @SuppressWarnings("empty-statement")
     public Hall_Availability() {
         initComponents();
-
+        User.setProfile(lblProfilePic4, currentUser);
         imageSetter.SetImageSize(lblHall4,lblSchedule4,lblView12);
         lblSchedule4.setBackground(new Color(125,17,209));
         lblSchedule4.setOpaque(true);
@@ -243,6 +247,8 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         lblHall4 = new javax.swing.JLabel();
         lblSchedule4 = new javax.swing.JLabel();
         lblView12 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        lblProfilePic4 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblRemark2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -335,6 +341,18 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(89, 14, 147));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        lblProfilePic4.setText("jLabel4");
+
         javax.swing.GroupLayout pnlNav4Layout = new javax.swing.GroupLayout(pnlNav4);
         pnlNav4.setLayout(pnlNav4Layout);
         pnlNav4Layout.setHorizontalGroup(
@@ -344,19 +362,26 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                 .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblProfilePic4)
+                        .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNav4Layout.setVerticalGroup(
             pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNav4Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(40, 40, 40)
+                .addComponent(lblProfilePic4)
+                .addGap(130, 130, 130)
                 .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(lblView12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
@@ -837,6 +862,16 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         ImageSetter.SetLabelMouseExit(lblView12, pnlNav4);
     }//GEN-LAST:event_lblView12MouseExited
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        currentUser.logout();
+        System.out.println(currentUser);
+        System.out.println(User.getLoggedInUser());
+        System.out.println("Successfully Logged out.");
+        this.dispose();
+        admin.Frame_Login login = new admin.Frame_Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -853,6 +888,11 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnFilterReset;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnLogout1;
+    private javax.swing.JButton btnLogout2;
+    private javax.swing.JButton btnLogout3;
+    private javax.swing.JButton btnLogout4;
     private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cboEndHour;
     private javax.swing.JComboBox<String> cboFilterHallName;
@@ -878,12 +918,33 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblHall1;
+    private javax.swing.JLabel lblHall2;
+    private javax.swing.JLabel lblHall3;
     private javax.swing.JLabel lblHall4;
+    private javax.swing.JLabel lblHall5;
+    private javax.swing.JLabel lblProfilePic;
+    private javax.swing.JLabel lblProfilePic1;
+    private javax.swing.JLabel lblProfilePic2;
+    private javax.swing.JLabel lblProfilePic3;
+    private javax.swing.JLabel lblProfilePic4;
     private javax.swing.JLabel lblRemark2;
+    private javax.swing.JLabel lblSchedule1;
+    private javax.swing.JLabel lblSchedule2;
+    private javax.swing.JLabel lblSchedule3;
     private javax.swing.JLabel lblSchedule4;
+    private javax.swing.JLabel lblSchedule5;
     private javax.swing.JLabel lblView12;
+    private javax.swing.JLabel lblView13;
+    private javax.swing.JLabel lblView14;
+    private javax.swing.JLabel lblView15;
+    private javax.swing.JLabel lblView16;
     private com.toedter.calendar.JMonthChooser mthMonth;
     private javax.swing.JPanel pnlButton;
+    private javax.swing.JPanel pnlNav;
+    private javax.swing.JPanel pnlNav1;
+    private javax.swing.JPanel pnlNav2;
+    private javax.swing.JPanel pnlNav3;
     private javax.swing.JPanel pnlNav4;
     private javax.swing.JPanel pnlStart2;
     private javax.swing.JScrollPane scrSchedule;

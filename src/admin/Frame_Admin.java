@@ -170,7 +170,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
         btnUser = new javax.swing.JButton();
         btnBooking = new javax.swing.JButton();
         lblProfilePic = new javax.swing.JLabel();
-        lblProfileID = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         jTabbedPane = new javax.swing.JTabbedPane();
         Panel_Scheduler = new javax.swing.JPanel();
@@ -313,10 +312,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
         lblProfilePic.setMaximumSize(new java.awt.Dimension(85, 85));
         lblProfilePic.setPreferredSize(new java.awt.Dimension(85, 85));
 
-        lblProfileID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblProfileID.setForeground(new java.awt.Color(255, 255, 255));
-        lblProfileID.setText("User ID");
-
         btnLogout.setBackground(new java.awt.Color(89, 14, 147));
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
@@ -338,13 +333,11 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblProfileID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                                .addComponent(btnScheduler, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btnBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(btnUser, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(btnScheduler, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -358,9 +351,7 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
                 .addComponent(btnUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(lblProfileID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
         );
@@ -2091,7 +2082,6 @@ public class Frame_Admin extends javax.swing.JFrame implements DataValidator_adm
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JLabel lblPicture;
     private javax.swing.JLabel lblPicture1;
-    private javax.swing.JLabel lblProfileID;
     private javax.swing.JLabel lblProfilePic;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JPanel pInfo;

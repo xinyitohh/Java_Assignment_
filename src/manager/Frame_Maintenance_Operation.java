@@ -112,6 +112,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
     {
 
         initComponents();
+        User.setProfile(jLabel1, currentUser);
         status_selection("In Progress", "Done", "Closed", "Cancelled", "Pending");
         Function.Populate_Data_Into_Table(filePath, maintance_data, t_1, this);
         Function.read_file_data(filePath, maintance_data);
@@ -250,6 +251,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
         Btn_Main = new javax.swing.JButton();
         Btn_DB = new javax.swing.JButton();
         Btn_Logout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         CB_ST_2 = new javax.swing.JComboBox<>();
         CB_ID = new javax.swing.JComboBox<>();
@@ -424,6 +426,9 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
             }
         });
         jPanel2.add(Btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 110, 40));
+
+        jLabel1.setText("jLabel1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 16, 90, 110));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 890));
 
@@ -659,6 +664,7 @@ public class Frame_Maintenance_Operation extends javax.swing.JFrame implements I
     private javax.swing.JComboBox<String> CB_ST;
     private javax.swing.JComboBox<String> CB_ST_2;
     private javax.swing.JPanel JPanel_1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

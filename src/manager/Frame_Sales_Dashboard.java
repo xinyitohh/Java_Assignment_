@@ -107,6 +107,7 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
     public Frame_Sales_Dashboard() throws IOException 
     {
         initComponents();
+        User.setProfile(jLabel1, currentUser);
         Function.Populate_Data_Into_Table(filePath,sales_data,t_1,this);
         Function.sortAllComboBoxes(1,J_Weekly_CB, J_Monthly_CB, J_Yearly_CB);
         Function.sortAllComboBoxes(2,J_Hall_CB);
@@ -273,6 +274,7 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
         jButton1 = new javax.swing.JButton();
         Btn_MO = new javax.swing.JButton();
         Btn_Main = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -586,6 +588,9 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
         });
         jPanel1.add(Btn_Main, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 120, 50));
 
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 90));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 840));
 
         pack();
@@ -775,6 +780,7 @@ public class Frame_Sales_Dashboard extends javax.swing.JFrame implements Interfa
     private javax.swing.JComboBox<String> J_Weekly_CB;
     private javax.swing.JComboBox<String> J_Yearly_CB;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

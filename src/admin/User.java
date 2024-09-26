@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public abstract class User {
     private String userId;
@@ -26,6 +27,7 @@ public abstract class User {
     abstract boolean verifyEmail(String email);
     public void logout() {
         User.setLoggedInUser(null);  
+        try{UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());}catch(Exception e){e.printStackTrace();}
         System.out.println("User logged out successfully.");
     }
     

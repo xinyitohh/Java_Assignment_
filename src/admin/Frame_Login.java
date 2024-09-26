@@ -918,9 +918,10 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
 
     
     private JFrame getFrameForUser(User user) {
-        if (user instanceof Scheduler) {
+        if (user instanceof Scheduler) {       
             return new scheduler.Scheduler_Home();
         } else if (user instanceof Admin) {
+            try{UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");}catch(Exception e){e.printStackTrace();}
             return new Frame_Admin();
         } else if (user instanceof Manager) {
             return new manager.Frame_Main();
@@ -957,7 +958,8 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
         /* Create and display the form */
             try {
             // Set the look and feel to Windows
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
