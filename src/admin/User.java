@@ -185,8 +185,9 @@ public abstract class User {
     
     @Override
     public String toString() {
-        return String.format("User[ID=%s, Name=%s, Gender=%s, Email=%s, Phone=%s, Picture=%s, Status=%s\n]",
-                userId, name, gender, email, phone, picture, status);
+//        return String.format("User[ID=%s, Name=%s, Gender=%s, Email=%s, Phone=%s, Picture=%s, Status=%s\n]",
+//                userId, name, gender, email, phone, picture, status);
+        return (userId + ";" + name + ";" + gender + ";" + email + ";" + phone + ";" + picture + ";" + status + ";" + balance);
     }
     
     

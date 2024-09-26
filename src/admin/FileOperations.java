@@ -11,15 +11,16 @@ public class FileOperations {
     public static void writeToFile(ArrayList<User> userList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (User user : userList) {
-                String line = user.getUserId() + ";" +
-                              user.getPassword() + ";" +
-                              user.getName() + ";" +
-                              user.getGender() + ";" +
-                              user.getEmail() + ";" +
-                              user.getPhone() + ";" +
-                              user.getPicture() + ";" +
-                              user.getStatus() + ";" +
-                              user.getBalance(); 
+//                String line = user.getUserId() + ";" +
+//                              user.getPassword() + ";" +
+//                              user.getName() + ";" +
+//                              user.getGender() + ";" +
+//                              user.getEmail() + ";" +
+//                              user.getPhone() + ";" +
+//                              user.getPicture() + ";" +
+//                              user.getStatus() + ";" +
+//                              user.getBalance(); 
+                String line = user.toString();
                 writer.write(line);
                 writer.newLine();
             }

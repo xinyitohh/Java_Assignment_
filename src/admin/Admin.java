@@ -90,6 +90,6 @@ public class Admin extends User {
     
     @Override
     public String toString() {
-        return "Admin{" + super.toString() + "}\n";
+        return this.getUserId() + ";" + this.getPassword() + ";" + this.getName() + ";" + this.getGender() + ";" + this.getEmail() + ";" + this.getPhone() + ";" + this.getPicture() + ";" + this.getStatus() + ";" + this.getBalance();
     }
 }
