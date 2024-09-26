@@ -11,21 +11,27 @@ package scheduler;
  */
 import java.io.*;
 import java.util.ArrayList;
+import manager.Data_Maintenance;
+import admin.User;
 
 public class FileOperation {
+    private User currentUser = User.getLoggedInUser();
     
-    public void FileWriting(String fname, ArrayList<String> a){
+    public static <T> void FileWriting(String fname, ArrayList<T> genericArray){
         try{
-            File Finput = new File(fname);
-            FileWriter fw = new FileWriter(fname, true);
-            PrintWriter pw = new PrintWriter(fw);
-           for (String line : a) {
-                pw.println(line); // Write each line from the ArrayList to the file
-            }
-            pw.close();
-            System.out.println("Document successfully write");
+            File file = new File(fname);
+            if ( ! file.exists()) { 
+                file.createNewFile(); 
+                }
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (T lines : genericArray) {
+            String line = lines.toString();
+            bw.write(line + "\n");
         }
-        catch (IOException EX)
+        bw.close();
+        System.out.println("Document successfully write");
+        }catch (IOException EX)
         {}
     }
     
@@ -77,6 +83,31 @@ public class FileOperation {
         }
         reader.close();
         return store;
+    }
+    
+    public ArrayList<Data_Maintenance> ReadMaintenance(String fname) throws IOException{
+        ArrayList<Data_Maintenance> issueData = new ArrayList<>();
+        File file = new File(fname);      
+        BufferedReader reader = new BufferedReader(new FileReader(fname));
+        String line;
+
+        while ((line = reader.readLine()) != null){
+            String[] part = line.split(";");
+
+            if (part.length == 6 && currentUser.getUserId().equals(part[3]) && part[4].equals("In Progress")){
+                System.out.println("maintenance read");
+                String id = part[0];
+                String issue = part[1];
+                String customer = part[2];
+                String staff = part[3];
+                String status = part[4];
+                String hall = part[5];
+
+                issueData.add(new Data_Maintenance(id,issue,customer,staff,status,hall));
+            }
+        }    
+        reader.close();
+        return issueData;
     }
     
     public static void DeleteFile(String fname){

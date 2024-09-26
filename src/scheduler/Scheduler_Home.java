@@ -15,41 +15,33 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import manager.Data_Maintenance;
+import java.util.ArrayList;
 
+import java.io.IOException;
 public class Scheduler_Home extends javax.swing.JFrame{
 
     private SetImage imageSetter = new ImageSetter();
-    /**
-     * Creates new form Scheduler
-     */
     private User currentUser = User.getLoggedInUser();
+    private ArrayList<Data_Maintenance> maintenance;
 
-    
-
-    public Scheduler_Home() {
-        
+    public Scheduler_Home() {        
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
         System.out.println("Current User: " + currentUser); // Check if this is null
         User.setProfile( lblProfilePic, currentUser);
-        //imageSetter.SetImageSize(60, lblHall,lblSchedule);
-        
+        imageSetter.SetImageSize(lblHall1,lblSchedule1,lblView12);
+//        try{
+//            FileOperation file = new FileOperation();
+//            maintenance = file.ReadMaintenance("issue.txt");
+//            int count = 0;
+//            for (Data_Maintenance d: maintenance){
+//                    count++;
+//            }
+//            lblPending.setText(Integer.toString(count));
+//        } catch(IOException ex){}   
     }
     
-//    private void updateImageDisplay(JLabel label, int size) {
-//        ImageIcon originalIcon = (ImageIcon) label.getIcon();
-//        Image scaledImage = originalIcon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH);
-//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-// 
-//        label.setIcon(scaledIcon);
-//        label.setMaximumSize(new java.awt.Dimension(size, size));
-//        label.setPreferredSize(new java.awt.Dimension(size, size));
-//    }
-//
-//    public void SetImageSize(){
-//        updateImageDisplay(lblHall,60);
-//        updateImageDisplay(lblSchedule,60);
-//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,60 +52,79 @@ public class Scheduler_Home extends javax.swing.JFrame{
     private void initComponents() {
 
         pnlNav = new javax.swing.JPanel();
-        lblHall = new javax.swing.JLabel();
-        lblSchedule = new javax.swing.JLabel();
-        lblView = new javax.swing.JLabel();
         lblProfilePic = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblView12 = new javax.swing.JLabel();
+        lblSchedule1 = new javax.swing.JLabel();
+        lblHall1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        lblPending = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        lblStartHallManagement = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lblStartScheduling = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlNav.setBackground(new java.awt.Color(37, 5, 62));
 
-        lblHall.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblHall.setForeground(new java.awt.Color(255, 255, 255));
-        lblHall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
-        lblHall.setText("Hall Manager");
-        lblHall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblHall.setPreferredSize(new java.awt.Dimension(69, 48));
-        lblHall.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lblHall.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblHallMouseClicked(evt);
-            }
-        });
-
-        lblSchedule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSchedule.setForeground(new java.awt.Color(255, 255, 255));
-        lblSchedule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
-        lblSchedule.setText("Schedule");
-        lblSchedule.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblSchedule.setMaximumSize(new java.awt.Dimension(62, 60));
-        lblSchedule.setMinimumSize(new java.awt.Dimension(62, 60));
-        lblSchedule.setPreferredSize(new java.awt.Dimension(62, 60));
-        lblSchedule.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lblSchedule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblScheduleMouseClicked(evt);
-            }
-        });
-
-        lblView.setForeground(new java.awt.Color(255, 255, 255));
-        lblView.setText("jLabel4");
-        lblView.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblViewMouseClicked(evt);
-            }
-        });
-
         lblProfilePic.setText("jLabel4");
+
+        lblView12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblView12.setForeground(new java.awt.Color(255, 255, 255));
+        lblView12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/ViewTask.png"))); // NOI18N
+        lblView12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblView12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblView12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblView12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblView12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblView12MouseExited(evt);
+            }
+        });
+
+        lblSchedule1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblSchedule1.setForeground(new java.awt.Color(255, 255, 255));
+        lblSchedule1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSchedule1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
+        lblSchedule1.setText("Schedule");
+        lblSchedule1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblSchedule1.setMaximumSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setMinimumSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setPreferredSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblSchedule1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseExited(evt);
+            }
+        });
+
+        lblHall1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblHall1.setForeground(new java.awt.Color(255, 255, 255));
+        lblHall1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHall1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
+        lblHall1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblHall1.setPreferredSize(new java.awt.Dimension(69, 48));
+        lblHall1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblHall1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHall1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlNavLayout = new javax.swing.GroupLayout(pnlNav);
         pnlNav.setLayout(pnlNavLayout);
@@ -122,48 +133,38 @@ public class Scheduler_Home extends javax.swing.JFrame{
             .addGroup(pnlNavLayout.createSequentialGroup()
                 .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlNavLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(pnlNavLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lblView, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlNavLayout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
+                        .addComponent(lblProfilePic))
                     .addGroup(pnlNavLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblHall, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(lblProfilePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlNavLayout.setVerticalGroup(
             pnlNavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlNavLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblProfilePic, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblHall, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(lblSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(lblView)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(lblProfilePic)
+                .addGap(81, 81, 81)
+                .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblView12)
+                .addContainerGap())
         );
-
-        jPanel2.setBackground(new java.awt.Color(239, 239, 239));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("DASHBOARD");
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setText("Today's Happening");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Total Booking");
+        jLabel3.setText("Pending Jobs");
+
+        lblPending.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblPending.setForeground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -171,60 +172,107 @@ public class Scheduler_Home extends javax.swing.JFrame{
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPending)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel3)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(lblPending)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Start Hall Mangement");
+
+        lblStartHallManagement.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblStartHallManagement.setForeground(new java.awt.Color(102, 102, 255));
+        lblStartHallManagement.setText("Let's start");
+        lblStartHallManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStartHallManagementMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblStartHallManagementMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblStartHallManagementMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 204, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStartHallManagement)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblStartHallManagement)
+                .addGap(23, 23, 23))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(435, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel2.setText("Today's Happening");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("DASHBOARD");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Scheduling Now");
+
+        lblStartScheduling.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblStartScheduling.setForeground(new java.awt.Color(102, 102, 255));
+        lblStartScheduling.setText("GO GO GO");
+        lblStartScheduling.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStartSchedulingMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblStartSchedulingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblStartSchedulingMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStartScheduling)
+                    .addComponent(jLabel5))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblStartScheduling)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,40 +281,98 @@ public class Scheduler_Home extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(437, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(26, 26, 26)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblHallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHallMouseClicked
-        Hall_Manager hall = new Hall_Manager();
-        hall.setVisible(true);
+    private void lblView12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblHallMouseClicked
+    }//GEN-LAST:event_lblView12MouseClicked
 
-    private void lblScheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblScheduleMouseClicked
+    private void lblView12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblView12);
+    }//GEN-LAST:event_lblView12MouseEntered
+
+    private void lblView12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseExited
+        ImageSetter.SetLabelMouseExit(lblView12, pnlNav);
+    }//GEN-LAST:event_lblView12MouseExited
+
+    private void lblSchedule1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseClicked
         Hall_Availability hall = new Hall_Availability();
         hall.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblScheduleMouseClicked
+    }//GEN-LAST:event_lblSchedule1MouseClicked
 
+    private void lblSchedule1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblSchedule1);
+    }//GEN-LAST:event_lblSchedule1MouseEntered
 
-    private void lblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMouseClicked
-        View_Task view = new View_Task();
-        view.setVisible(true);
-    }//GEN-LAST:event_lblViewMouseClicked
+    private void lblSchedule1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseExited
+        ImageSetter.SetLabelMouseExit(lblSchedule1, pnlNav);
+    }//GEN-LAST:event_lblSchedule1MouseExited
+
+    private void lblHall1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall1MouseClicked
+        Hall_Manager hall = new Hall_Manager();
+        hall.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblHall1MouseClicked
+
+    private void lblStartHallManagementMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartHallManagementMouseEntered
+        lblStartHallManagement.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblStartHallManagementMouseEntered
+
+    private void lblStartHallManagementMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartHallManagementMouseExited
+        lblStartHallManagement.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_lblStartHallManagementMouseExited
+
+    private void lblStartSchedulingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartSchedulingMouseEntered
+        lblStartScheduling.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblStartSchedulingMouseEntered
+
+    private void lblStartSchedulingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartSchedulingMouseExited
+        lblStartScheduling.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_lblStartSchedulingMouseExited
+
+    private void lblStartHallManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartHallManagementMouseClicked
+        Hall_Manager hall = new Hall_Manager();
+        hall.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblStartHallManagementMouseClicked
+
+    private void lblStartSchedulingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStartSchedulingMouseClicked
+        Hall_Availability hall = new Hall_Availability();
+        hall.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblStartSchedulingMouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -308,13 +414,18 @@ public class Scheduler_Home extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JLabel lblHall;
+    private javax.swing.JLabel lblHall1;
+    private javax.swing.JLabel lblPending;
     private javax.swing.JLabel lblProfilePic;
-    private javax.swing.JLabel lblSchedule;
-    private javax.swing.JLabel lblView;
+    private javax.swing.JLabel lblSchedule1;
+    private javax.swing.JLabel lblStartHallManagement;
+    private javax.swing.JLabel lblStartScheduling;
+    private javax.swing.JLabel lblView12;
     private javax.swing.JPanel pnlNav;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,6 +29,7 @@ public class Schedule implements DataValidation{
     private String End_Date;
     private String End_Time;
     private String Remarks;
+    private int indexToEdit;
 
     public Schedule() {
     }
@@ -42,8 +43,22 @@ public class Schedule implements DataValidation{
         this.End_Date = End_Date;
         this.End_Time = End_Time;
         this.Remarks = Remarks;
+        this.indexToEdit = -1;
     }
 
+    public Schedule(String Schedule_Type, String Hall_Name, String Start_Date, String Start_Time, String End_Date, String End_Time, String Remarks, int indexToEdit) {
+        this.Schedule_Type = Schedule_Type;
+        this.Hall_Name = Hall_Name;
+        this.Start_Date = Start_Date;
+        this.Start_Time = Start_Time;
+        this.End_Date = End_Date;
+        this.End_Time = End_Time;
+        this.Remarks = Remarks;
+        this.indexToEdit = indexToEdit;
+    }
+    
+    
+    
     public String getSchedule_Type() {
         return Schedule_Type;
     }
@@ -149,37 +164,36 @@ public class Schedule implements DataValidation{
             correct = false;
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        LocalDate now = LocalDate.now();
-        Date today = java.sql.Date.valueOf(now.minusDays(1));
-        Date StartDate = null;
-        Date EndDate = null;
+        // Declaring all the date format and value
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate today = LocalDate.now();
 
-        try {
-            // Parse start and end dates
-            StartDate = dateFormat.parse(Start_Date);
-            EndDate = dateFormat.parse(End_Date);
+        // Parse start and end dates
+        LocalDate StartDate = LocalDate.parse(Start_Date,dateFormat);
+        LocalDate EndDate = LocalDate.parse(End_Date, dateFormat);
 
-            // Validate date range
-            if (StartDate.before(today) || EndDate.before(today) || EndDate.before(StartDate)) {
-                JOptionPane.showMessageDialog(null, 
-                    "Start and end dates cannot be earlier than today, and the end date cannot be earlier than the start date.", 
-                    "Warning", 
-                    JOptionPane.WARNING_MESSAGE);
-                correct = false;
-            }
-        } catch (ParseException e) {}
+        // Validate date range
+        if (StartDate.isBefore(today) || EndDate.isBefore(today) || EndDate.isBefore(StartDate)) {
+            JOptionPane.showMessageDialog(null, 
+                "Start and end dates cannot be earlier than today, and the end date cannot be earlier than the start date.", 
+                "Warning", 
+                JOptionPane.WARNING_MESSAGE);
+            correct = false;
+        }    
 
-        try {
+        try{
             ArrayList<Schedule> schedule = FileOperation.ReadSchedule("Schedule.txt");
-            for (Schedule sche: schedule) {
-                Date existingStartDate = dateFormat.parse(sche.getStart_Date());
-                Date existingEndDate = dateFormat.parse(sche.getEnd_Date());
+            for (int i = 0; i < schedule.size();i++) {
+                Schedule sche = schedule.get(i);
+                
+                if (i == indexToEdit){continue;}
+                
+                if (sche.getHall_Name().equals(Hall_Name) && !sche.equals(this)){
+                    LocalDate existingStartDate = LocalDate.parse(sche.getStart_Date(),dateFormat);
+                    LocalDate existingEndDate = LocalDate.parse(sche.getEnd_Date(),dateFormat);
 
-                // Check if the hall names match
-                if (sche.getHall_Name().equals(Hall_Name) && !sche.equals(this)) {
-                    boolean isOverlap = (StartDate.before(existingEndDate) || StartDate.equals(existingEndDate))
-                                        && (EndDate.after(existingStartDate) || EndDate.equals(existingStartDate));
+                    boolean isOverlap = (StartDate.isBefore(existingEndDate) || StartDate.equals(existingEndDate))
+                                        && (EndDate.isAfter(existingStartDate) || EndDate.equals(existingStartDate));
 
                     LocalTime existingStartTime = LocalTime.parse(sche.getStart_Time(), timeFormatter);
                     LocalTime existingEndTime = LocalTime.parse(sche.getEnd_Time(), timeFormatter);
@@ -197,12 +211,10 @@ public class Schedule implements DataValidation{
                         correct = false;
                         break; // Exit the loop if you only need to detect the first occurrence
                     }
-                }
+               }
             }
-        } catch (IOException e) {} 
-          catch (ParseException e) {}
-        
+        } catch (IOException ex){}
         return correct;
     }
-
+    
 }

@@ -9,6 +9,8 @@ package scheduler;
  *
  * @author yeo yu le
  */
+import java.awt.Color;
+import java.awt.Cursor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -27,7 +29,11 @@ public class Hall_Manager extends javax.swing.JFrame {
      */
     public Hall_Manager() {
         initComponents();
-        imageSetter.SetImageSize(lblHall1,lblSchedule1);
+        lblHall1.setText("<html>&nbsp;&nbsp;Hall<br>Manager</html>");
+        lblView12.setText("<html>View<br>Task</html>");
+        imageSetter.SetImageSize(lblHall1,lblSchedule1,lblView12);
+        lblHall1.setOpaque(true);
+        lblHall1.setBackground(new Color(125,17,209));
      
         checkboxlist.add(cboxSpeaker);
         checkboxlist.add(cboxLight);
@@ -36,7 +42,7 @@ public class Hall_Manager extends javax.swing.JFrame {
         checkboxlist.add(cboxMic);
         checkboxlist.add(cboxWhiteboard);
         
-        LoadHallTable();
+        LoadHallTable("");
         Hall hall = new Hall();
         hall.LoadHallName(cboHallName);
     }
@@ -50,6 +56,19 @@ public class Hall_Manager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblHall = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        cboHallTypeFilter = new javax.swing.JComboBox<>();
+        btnFilter = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
+        pnlNav13 = new javax.swing.JPanel();
+        lblProfilePic12 = new javax.swing.JLabel();
+        lblHall1 = new javax.swing.JLabel();
+        lblSchedule1 = new javax.swing.JLabel();
+        lblView12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cboHallType = new javax.swing.JComboBox<>();
@@ -74,14 +93,188 @@ public class Hall_Manager extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblHall = new javax.swing.JTable();
-        pnlNav1 = new javax.swing.JPanel();
-        lblHall1 = new javax.swing.JLabel();
-        lblSchedule1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+
+        tblHall.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Hall Type", "Hall Name", "Capacity", "Equipment"
+            }
+        ));
+        tblHall.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblHallMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblHall);
+
+        jLabel10.setText("Hall Type");
+
+        cboHallTypeFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Auditorium", "Banquet Hall", "Meeting Room" }));
+        cboHallTypeFilter.setSelectedIndex(-1);
+
+        btnFilter.setBackground(new java.awt.Color(102, 0, 102));
+        btnFilter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnFilter.setForeground(new java.awt.Color(255, 255, 255));
+        btnFilter.setText("Filter");
+        btnFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFilterActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setText("Filter By:");
+
+        btnReset.setBackground(new java.awt.Color(0, 0, 102));
+        btnReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel10)
+                        .addGap(27, 27, 27)
+                        .addComponent(cboHallTypeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(cboHallTypeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        pnlNav13.setBackground(new java.awt.Color(37, 5, 62));
+
+        lblProfilePic12.setText("jLabel4");
+
+        lblHall1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblHall1.setForeground(new java.awt.Color(255, 255, 255));
+        lblHall1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHall1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
+        lblHall1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblHall1.setPreferredSize(new java.awt.Dimension(69, 48));
+        lblHall1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblHall1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHall1MouseClicked(evt);
+            }
+        });
+
+        lblSchedule1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblSchedule1.setForeground(new java.awt.Color(255, 255, 255));
+        lblSchedule1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSchedule1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
+        lblSchedule1.setText("Schedule");
+        lblSchedule1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblSchedule1.setMaximumSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setMinimumSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setPreferredSize(new java.awt.Dimension(62, 60));
+        lblSchedule1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblSchedule1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSchedule1MouseExited(evt);
+            }
+        });
+
+        lblView12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblView12.setForeground(new java.awt.Color(255, 255, 255));
+        lblView12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/ViewTask.png"))); // NOI18N
+        lblView12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblView12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblView12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblView12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblView12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblView12MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlNav13Layout = new javax.swing.GroupLayout(pnlNav13);
+        pnlNav13.setLayout(pnlNav13Layout);
+        pnlNav13Layout.setHorizontalGroup(
+            pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNav13Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblProfilePic12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNav13Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlNav13Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlNav13Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        pnlNav13Layout.setVerticalGroup(
+            pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNav13Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(lblProfilePic12)
+                .addGap(186, 186, 186)
+                .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlNav13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlNav13Layout.createSequentialGroup()
+                    .addGap(131, 131, 131)
+                    .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(120, 120, 120)
+                    .addComponent(lblView12)
+                    .addContainerGap(132, Short.MAX_VALUE)))
+        );
 
         jPanel2.setBackground(new java.awt.Color(255, 51, 255));
 
@@ -295,108 +488,23 @@ public class Hall_Manager extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
-
-        tblHall.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Hall Type", "Hall Name", "Capacity", "Equipment"
-            }
-        ));
-        tblHall.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblHallMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tblHall);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        pnlNav1.setBackground(new java.awt.Color(37, 5, 62));
-
-        lblHall1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblHall1.setForeground(new java.awt.Color(255, 255, 255));
-        lblHall1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHall1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/icons8-hall-96.png"))); // NOI18N
-        lblHall1.setText("Hall Manager");
-        lblHall1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblHall1.setPreferredSize(new java.awt.Dimension(69, 48));
-        lblHall1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lblHall1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblHall1MouseClicked(evt);
-            }
-        });
-
-        lblSchedule1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblSchedule1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSchedule1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSchedule1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/schedule_icon.png"))); // NOI18N
-        lblSchedule1.setText("Schedule");
-        lblSchedule1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblSchedule1.setMaximumSize(new java.awt.Dimension(62, 60));
-        lblSchedule1.setMinimumSize(new java.awt.Dimension(62, 60));
-        lblSchedule1.setPreferredSize(new java.awt.Dimension(62, 60));
-        lblSchedule1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lblSchedule1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSchedule1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnlNav1Layout = new javax.swing.GroupLayout(pnlNav1);
-        pnlNav1.setLayout(pnlNav1Layout);
-        pnlNav1Layout.setHorizontalGroup(
-            pnlNav1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNav1Layout.createSequentialGroup()
-                .addGroup(pnlNav1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNav1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlNav1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlNav1Layout.setVerticalGroup(
-            pnlNav1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNav1Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(lblHall1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(lblSchedule1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlNav1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlNav13, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlNav1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlNav13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -432,7 +540,7 @@ public class Hall_Manager extends javax.swing.JFrame {
             Hall hall = new Hall(hallType, hallName, capacity, equipment);
             hall.WriteHall();
             
-            LoadHallTable(); 
+            LoadHallTable(""); 
             cboHallName.removeAllItems();
             hall.LoadHallName(cboHallName);
         }
@@ -488,7 +596,7 @@ public class Hall_Manager extends javax.swing.JFrame {
                 Hall hall = new Hall(h.getHallType(),h.getHallName(),h.getCapacity(),h.getEquipment());
                 hall.WriteHall();
             }
-            LoadHallTable();
+            LoadHallTable("");
             cboHallName.removeAllItems();
             Hall hall_operate = new Hall();
             hall_operate.LoadHallName(cboHallName);
@@ -546,7 +654,7 @@ public class Hall_Manager extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "The data has been deleted successfully");
             
-            LoadHallTable();
+            LoadHallTable("");
             cboHallName.removeAllItems();
             Hall hall_operate = new Hall();
             hall_operate.LoadHallName(cboHallName);
@@ -563,6 +671,16 @@ public class Hall_Manager extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnClearActionPerformed
 
+    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
+        String hallType = cboHallTypeFilter.getSelectedItem().toString();
+        LoadHallTable(hallType);
+    }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        LoadHallTable("");
+        cboHallTypeFilter.setSelectedIndex(-1);
+    }//GEN-LAST:event_btnResetActionPerformed
+
     private void lblHall1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall1MouseClicked
         Hall_Manager hall = new Hall_Manager();
         hall.setVisible(true);
@@ -575,6 +693,27 @@ public class Hall_Manager extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblSchedule1MouseClicked
 
+    private void lblView12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
+    }//GEN-LAST:event_lblView12MouseClicked
+
+    private void lblSchedule1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblSchedule1);
+    }//GEN-LAST:event_lblSchedule1MouseEntered
+
+    private void lblSchedule1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSchedule1MouseExited
+        ImageSetter.SetLabelMouseExit(lblSchedule1, pnlNav13);
+    }//GEN-LAST:event_lblSchedule1MouseExited
+
+    private void lblView12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblView12);   
+    }//GEN-LAST:event_lblView12MouseEntered
+
+    private void lblView12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseExited
+        ImageSetter.SetLabelMouseExit(lblView12, pnlNav13);
+    }//GEN-LAST:event_lblView12MouseExited
+
     private Hall SettingData(){
         Hall hall = new Hall();
         hall.setHallType(cboHallType.getSelectedItem().toString());
@@ -586,21 +725,23 @@ public class Hall_Manager extends javax.swing.JFrame {
         return hall;
     }
     
-    private void LoadHallTable(){       
+    private void LoadHallTable(String type){       
         try {
             hallData = FileOperation.ReadHall("hall.txt");
             
             DefaultTableModel model = (DefaultTableModel)tblHall.getModel();
             
             model.setRowCount(0);
-            
+                 
             for (Hall h: hallData){
-                model.addRow(new Object[]{
-                    h.getHallType(),
-                    h.getHallName(),
-                    h.getCapacity(),
-                    h.getEquipment()                    
-                });
+                if (type.isEmpty() || h.getHallType().equals(type)){
+                    model.addRow(new Object[]{
+                        h.getHallType(),
+                        h.getHallName(),
+                        h.getCapacity(),
+                        h.getEquipment()                    
+                    });
+                }
             }
         } catch (IOException ex) {
             System.out.println(ex);
@@ -670,8 +811,11 @@ public class Hall_Manager extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnFilter;
+    private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cboHallName;
     private javax.swing.JComboBox<String> cboHallType;
+    private javax.swing.JComboBox<String> cboHallTypeFilter;
     private javax.swing.JCheckBox cboxLectern;
     private javax.swing.JCheckBox cboxLight;
     private javax.swing.JCheckBox cboxMic;
@@ -679,6 +823,8 @@ public class Hall_Manager extends javax.swing.JFrame {
     private javax.swing.JCheckBox cboxSpeaker;
     private javax.swing.JCheckBox cboxWhiteboard;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -690,9 +836,71 @@ public class Hall_Manager extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHall;
     private javax.swing.JLabel lblHall1;
+    private javax.swing.JLabel lblHall10;
+    private javax.swing.JLabel lblHall11;
+    private javax.swing.JLabel lblHall12;
+    private javax.swing.JLabel lblHall2;
+    private javax.swing.JLabel lblHall3;
+    private javax.swing.JLabel lblHall4;
+    private javax.swing.JLabel lblHall5;
+    private javax.swing.JLabel lblHall6;
+    private javax.swing.JLabel lblHall7;
+    private javax.swing.JLabel lblHall8;
+    private javax.swing.JLabel lblHall9;
+    private javax.swing.JLabel lblProfilePic;
+    private javax.swing.JLabel lblProfilePic1;
+    private javax.swing.JLabel lblProfilePic10;
+    private javax.swing.JLabel lblProfilePic11;
+    private javax.swing.JLabel lblProfilePic12;
+    private javax.swing.JLabel lblProfilePic2;
+    private javax.swing.JLabel lblProfilePic3;
+    private javax.swing.JLabel lblProfilePic4;
+    private javax.swing.JLabel lblProfilePic5;
+    private javax.swing.JLabel lblProfilePic6;
+    private javax.swing.JLabel lblProfilePic7;
+    private javax.swing.JLabel lblProfilePic8;
+    private javax.swing.JLabel lblProfilePic9;
+    private javax.swing.JLabel lblSchedule;
     private javax.swing.JLabel lblSchedule1;
-    private javax.swing.JPanel pnlNav1;
+    private javax.swing.JLabel lblSchedule10;
+    private javax.swing.JLabel lblSchedule11;
+    private javax.swing.JLabel lblSchedule12;
+    private javax.swing.JLabel lblSchedule2;
+    private javax.swing.JLabel lblSchedule3;
+    private javax.swing.JLabel lblSchedule4;
+    private javax.swing.JLabel lblSchedule5;
+    private javax.swing.JLabel lblSchedule6;
+    private javax.swing.JLabel lblSchedule7;
+    private javax.swing.JLabel lblSchedule8;
+    private javax.swing.JLabel lblSchedule9;
+    private javax.swing.JLabel lblView;
+    private javax.swing.JLabel lblView1;
+    private javax.swing.JLabel lblView10;
+    private javax.swing.JLabel lblView11;
+    private javax.swing.JLabel lblView12;
+    private javax.swing.JLabel lblView2;
+    private javax.swing.JLabel lblView3;
+    private javax.swing.JLabel lblView4;
+    private javax.swing.JLabel lblView5;
+    private javax.swing.JLabel lblView6;
+    private javax.swing.JLabel lblView7;
+    private javax.swing.JLabel lblView8;
+    private javax.swing.JLabel lblView9;
+    private javax.swing.JPanel pnlNav;
+    private javax.swing.JPanel pnlNav10;
+    private javax.swing.JPanel pnlNav11;
+    private javax.swing.JPanel pnlNav12;
+    private javax.swing.JPanel pnlNav13;
+    private javax.swing.JPanel pnlNav2;
+    private javax.swing.JPanel pnlNav3;
+    private javax.swing.JPanel pnlNav4;
+    private javax.swing.JPanel pnlNav5;
+    private javax.swing.JPanel pnlNav6;
+    private javax.swing.JPanel pnlNav7;
+    private javax.swing.JPanel pnlNav8;
+    private javax.swing.JPanel pnlNav9;
     private javax.swing.JTable tblHall;
     private javax.swing.JTextField txtCapacity;
     private javax.swing.JTextField txtHallName;
