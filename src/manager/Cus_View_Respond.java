@@ -79,7 +79,7 @@ public class Cus_View_Respond extends javax.swing.JFrame
                 {
 
                     ArrayList<Data_Maintenance> maintenanceDataList = (ArrayList<Data_Maintenance>) data;
-                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[4].trim());
+                    Data_Maintenance m = new Data_Maintenance(parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(), parts[4].trim(), parts[5].trim());
                     maintenanceDataList.add(m);
                 }
             }
