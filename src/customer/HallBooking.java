@@ -13,6 +13,7 @@ import java.time.temporal.ChronoUnit;
 import admin.User;
 import admin.Customer;
 import admin.Frame_Login;
+import java.util.Locale;
 
 public class HallBooking extends javax.swing.JFrame {
     private List<Hall> allHalls; // Store all halls here
@@ -595,8 +596,13 @@ public class HallBooking extends javax.swing.JFrame {
     
     public static double calculateBookingPrice(String startDateStr, String startTimeStr, String endDateStr, String endTimeStr, double ratePerHour) {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mma");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mma", Locale.ENGLISH);
 
+            // Print the input values for debugging
+            System.out.println("Start Date String: " + startDateStr);
+            System.out.println("Start Time String: " + startTimeStr);
+            System.out.println("End Date String: " + endDateStr);
+            System.out.println("End Time String: " + endTimeStr);
         // parse dates and times and use formatter to differentiate
         LocalDate startDate = LocalDate.parse(startDateStr, dateFormatter);
         LocalDate endDate = LocalDate.parse(endDateStr, dateFormatter);

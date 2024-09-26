@@ -270,6 +270,7 @@ public class Cus_View_Respond extends javax.swing.JFrame
     }//GEN-LAST:event_t_1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new customer.RaiseIssue().setVisible(true);
         this.dispose();
                 
     }//GEN-LAST:event_jButton1ActionPerformed

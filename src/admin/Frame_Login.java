@@ -904,7 +904,7 @@ public class Frame_Login extends javax.swing.JFrame implements DataValidator_adm
         mouseClick++;
         System.out.println(mouseClick);
         if (mouseClick >= 3){
-            User admin = new Admin("A1001","a","a","a","a","a","images/A1001.jpg","active");
+            User admin = new Admin("A1001","a","a","a","a","a","images/C1001.jpg","active");
             User.setLoggedInUser(admin);
                     
                     
