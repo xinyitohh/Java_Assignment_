@@ -45,9 +45,11 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     public Hall_Availability() {
         initComponents();
 
-        imageSetter.SetImageSize(lblHall4,lblSchedule4);
-        System.out.println(lblHall4.getHorizontalTextPosition());
-        System.out.println(lblSchedule4.getHorizontalTextPosition());
+        imageSetter.SetImageSize(lblHall4,lblSchedule4,lblView12);
+        lblSchedule4.setBackground(new Color(125,17,209));
+        lblSchedule4.setOpaque(true);
+        lblHall4.setText("<html>&nbsp;&nbsp;Hall<br>Manager</html>");
+        lblView12.setText("<html>View<br>Task</html>");
         
         Schedule s = new Schedule();
         s.showTime(cboStartHour, txtAmPm1);
@@ -240,18 +242,19 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         pnlNav4 = new javax.swing.JPanel();
         lblHall4 = new javax.swing.JLabel();
         lblSchedule4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        lblRemark = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        lblView12 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblRemark2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         txtfRemarks = new javax.swing.JTextArea();
-        pnlStart = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pnlStart2 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         cboStartHour = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         spnStartMinutes = new javax.swing.JSpinner();
         txtAmPm1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         cboEndHour = new javax.swing.JComboBox<>();
         spnEndMinutes = new javax.swing.JSpinner();
         txtAmPm2 = new javax.swing.JTextField();
@@ -262,8 +265,6 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         cboHallName = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         cboScheduleType = new javax.swing.JComboBox<>();
-        scrSchedule = new javax.swing.JScrollPane();
-        pnlButton = new javax.swing.JPanel();
         btnReset = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -278,6 +279,8 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         btnFilter = new javax.swing.JButton();
         btnFilterReset = new javax.swing.JButton();
         mthMonth = new com.toedter.calendar.JMonthChooser();
+        scrSchedule = new javax.swing.JScrollPane();
+        pnlButton = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -315,17 +318,58 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         lblSchedule4.setPreferredSize(new java.awt.Dimension(62, 60));
         lblSchedule4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        lblView12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        lblView12.setForeground(new java.awt.Color(255, 255, 255));
+        lblView12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scheduler/ViewTask.png"))); // NOI18N
+        lblView12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblView12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblView12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblView12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblView12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblView12MouseExited(evt);
+            }
+        });
 
-        lblRemark.setText("Remarks");
+        javax.swing.GroupLayout pnlNav4Layout = new javax.swing.GroupLayout(pnlNav4);
+        pnlNav4.setLayout(pnlNav4Layout);
+        pnlNav4Layout.setHorizontalGroup(
+            pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNav4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblView12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        pnlNav4Layout.setVerticalGroup(
+            pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNav4Layout.createSequentialGroup()
+                .addGap(186, 186, 186)
+                .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(lblView12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
+
+        lblRemark2.setText("Remarks");
 
         txtfRemarks.setColumns(20);
         txtfRemarks.setRows(5);
-        jScrollPane1.setViewportView(txtfRemarks);
+        jScrollPane3.setViewportView(txtfRemarks);
 
-        pnlStart.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Start Date & Time"));
+        pnlStart2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Start Date & Time"));
 
-        jLabel1.setText("Start Date");
+        jLabel16.setText("Start Date");
 
         cboStartHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6" }));
         cboStartHour.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +378,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
             }
         });
 
-        jLabel2.setText("Start Time");
+        jLabel17.setText("Start Time");
 
         spnStartMinutes.setModel(new javax.swing.SpinnerNumberModel(00, 00,59 , 1)
         );
@@ -342,9 +386,9 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
 
         txtAmPm1.setEditable(false);
 
-        jLabel4.setText("End Date");
+        jLabel18.setText("End Date");
 
-        jLabel5.setText("End Time");
+        jLabel19.setText("End Time");
 
         cboEndHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6" }));
         cboEndHour.addActionListener(new java.awt.event.ActionListener() {
@@ -363,33 +407,33 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
 
         dteEnd.setDateFormatString("dd-MM-yyyy");
 
-        javax.swing.GroupLayout pnlStartLayout = new javax.swing.GroupLayout(pnlStart);
-        pnlStart.setLayout(pnlStartLayout);
-        pnlStartLayout.setHorizontalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlStart2Layout = new javax.swing.GroupLayout(pnlStart2);
+        pnlStart2.setLayout(pnlStart2Layout);
+        pnlStart2Layout.setHorizontalGroup(
+            pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStart2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStartLayout.createSequentialGroup()
-                        .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlStartLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStart2Layout.createSequentialGroup()
+                        .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlStart2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
                                 .addGap(18, 18, 18)
                                 .addComponent(cboStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spnStartMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtAmPm1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlStartLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                            .addGroup(pnlStart2Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
                                 .addGap(18, 18, 18)
                                 .addComponent(dteStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel4)
+                        .addComponent(jLabel18)
                         .addGap(18, 18, 18)
                         .addComponent(dteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlStartLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                    .addGroup(pnlStart2Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
                         .addGap(22, 22, 22)
                         .addComponent(cboEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -398,27 +442,27 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                         .addComponent(txtAmPm2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
-        pnlStartLayout.setVerticalGroup(
-            pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStartLayout.createSequentialGroup()
+        pnlStart2Layout.setVerticalGroup(
+            pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStart2Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStartLayout.createSequentialGroup()
-                        .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel4))
+                .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStart2Layout.createSequentialGroup()
+                        .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel18))
                             .addComponent(dteStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
-                        .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                        .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
                             .addComponent(spnStartMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAmPm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(dteEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addGroup(pnlStart2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
                     .addComponent(spnEndMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAmPm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -443,24 +487,6 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                 cboScheduleTypeActionPerformed(evt);
             }
         });
-
-        scrSchedule.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrSchedule.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        pnlButton.setBackground(new java.awt.Color(255, 102, 102));
-
-        javax.swing.GroupLayout pnlButtonLayout = new javax.swing.GroupLayout(pnlButton);
-        pnlButton.setLayout(pnlButtonLayout);
-        pnlButtonLayout.setHorizontalGroup(
-            pnlButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 681, Short.MAX_VALUE)
-        );
-        pnlButtonLayout.setVerticalGroup(
-            pnlButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
-        );
-
-        scrSchedule.setViewportView(pnlButton);
 
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -569,7 +595,7 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFilterReset, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
@@ -598,21 +624,38 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                                 .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10))
-                        .addContainerGap())
+                            .addComponent(jLabel10)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnFilterReset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(18, Short.MAX_VALUE))))
+                        .addComponent(btnFilterReset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        scrSchedule.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrSchedule.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        pnlButton.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout pnlButtonLayout = new javax.swing.GroupLayout(pnlButton);
+        pnlButton.setLayout(pnlButtonLayout);
+        pnlButtonLayout.setHorizontalGroup(
+            pnlButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 722, Short.MAX_VALUE)
+        );
+        pnlButtonLayout.setVerticalGroup(
+            pnlButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 602, Short.MAX_VALUE)
+        );
+
+        scrSchedule.setViewportView(pnlButton);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
@@ -621,70 +664,48 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
                         .addComponent(jLabel6)
                         .addGap(38, 38, 38)
                         .addComponent(cboHallName, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRemark)
-                            .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRemark2)
+                            .addComponent(pnlStart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(95, 95, 95)
                                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78)
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrSchedule)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(92, 92, 92)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cboScheduleType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(cboHallName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addComponent(pnlStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlStart2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(lblRemark)
+                .addComponent(lblRemark2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout pnlNav4Layout = new javax.swing.GroupLayout(pnlNav4);
-        pnlNav4.setLayout(pnlNav4Layout);
-        pnlNav4Layout.setHorizontalGroup(
-            pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNav4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        pnlNav4Layout.setVerticalGroup(
-            pnlNav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNav4Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(lblHall4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(lblSchedule4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(scrSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -692,17 +713,34 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlNav4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlNav4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlNav4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblHall4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseClicked
+        Hall_Manager hall = new Hall_Manager();
+        hall.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblHall4MouseClicked
+
+    private void lblHall4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblHall4);
+    }//GEN-LAST:event_lblHall4MouseEntered
+
+    private void lblHall4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseExited
+        ImageSetter.SetLabelMouseExit(lblHall4,pnlNav4);
+    }//GEN-LAST:event_lblHall4MouseExited
 
     private void btnFilterResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterResetActionPerformed
         setupLayout();
@@ -785,19 +823,19 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         s.showTime(cboStartHour, txtAmPm1);
     }//GEN-LAST:event_cboStartHourActionPerformed
 
-    private void lblHall4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseClicked
-        Hall_Manager hall = new Hall_Manager();
-        hall.setVisible(true);
+    private void lblView12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseClicked
+        View_Task view = new View_Task();
+        view.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblHall4MouseClicked
+    }//GEN-LAST:event_lblView12MouseClicked
 
-    private void lblHall4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseEntered
-        ImageSetter.SetLabelMouseEnter(lblHall4);
-    }//GEN-LAST:event_lblHall4MouseEntered
+    private void lblView12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseEntered
+        ImageSetter.SetLabelMouseEnter(lblView12);
+    }//GEN-LAST:event_lblView12MouseEntered
 
-    private void lblHall4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall4MouseExited
-        ImageSetter.SetLabelMouseExit(lblHall4,pnlNav4);
-    }//GEN-LAST:event_lblHall4MouseExited
+    private void lblView12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblView12MouseExited
+        ImageSetter.SetLabelMouseExit(lblView12, pnlNav4);
+    }//GEN-LAST:event_lblView12MouseExited
 
     /**
      * @param args the command line arguments
@@ -823,30 +861,31 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
     private javax.swing.JComboBox<String> cboStartHour;
     private com.toedter.calendar.JDateChooser dteEnd;
     private com.toedter.calendar.JDateChooser dteStart;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblHall4;
-    private javax.swing.JLabel lblRemark;
+    private javax.swing.JLabel lblRemark2;
     private javax.swing.JLabel lblSchedule4;
+    private javax.swing.JLabel lblView12;
     private com.toedter.calendar.JMonthChooser mthMonth;
     private javax.swing.JPanel pnlButton;
     private javax.swing.JPanel pnlNav4;
-    private javax.swing.JPanel pnlStart;
+    private javax.swing.JPanel pnlStart2;
     private javax.swing.JScrollPane scrSchedule;
     private javax.swing.JSpinner spnEndMinutes;
     private javax.swing.JSpinner spnStartMinutes;
