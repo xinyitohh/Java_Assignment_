@@ -189,6 +189,8 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
 
             panel.add(button, gbc);
 
+            // This is from a button's logic which can open Hall_Availability_Operation frame
+            // Pass this(Hall_Availability) as a parameter to Hall_Availability_Operation
             Hall_Availability_Operation new_hall = new Hall_Availability_Operation(position.get(i),this);
             // Add action listener for the buttons
             button.addActionListener(e -> new_hall.setVisible(true));
@@ -230,8 +232,9 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         return dateList;
     }
 
+    @Override
     public void EditView(){
-        setupLayout();
+        setupLayout(); // A logic to set the layout
     }
     
     /**
@@ -830,9 +833,8 @@ public class Hall_Availability extends javax.swing.JFrame implements EditListene
         validater = new Schedule(type,hallName,start_date,start_time,end_date,end_time,remark);
 
         if (validater.ValidateData()){
-            Schedule s = new Schedule(type, hallName,start_date,start_time,end_date,end_time,remark);
-            s.WriteSchedule();
-
+            schedule.add(new Schedule(type,hallName,start_date,start_time,end_date,end_time,remark));
+            FileOperation.FileWriting("Schedule.txt", schedule);
             for (JPanel p:panelObj){pnlButton.remove(p);}
             for (JLabel label:labelObj){pnlButton.remove(label);}
             setupLayout();

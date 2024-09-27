@@ -46,7 +46,8 @@ public class Schedule implements DataValidation{
         this.indexToEdit = -1;
     }
 
-    public Schedule(String Schedule_Type, String Hall_Name, String Start_Date, String Start_Time, String End_Date, String End_Time, String Remarks, int indexToEdit) {
+    public Schedule(String Schedule_Type, String Hall_Name, String Start_Date, String Start_Time, String End_Date, String End_Time, 
+            String Remarks, int indexToEdit) {
         this.Schedule_Type = Schedule_Type;
         this.Hall_Name = Hall_Name;
         this.Start_Date = Start_Date;

@@ -385,16 +385,12 @@ public class Hall_Availability_Operation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int confirm = JOptionPane.showConfirmDialog(null, "You are going to delete the data. Do you confirm?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(null, "You are going to "
+                + "delete the data. Do you confirm?", "Confirmation", JOptionPane.YES_NO_OPTION);
         
         if (confirm == JOptionPane.YES_OPTION){        
-            FileOperation.DeleteFile("Schedule.txt");
             schedule.remove(schedule.get(position));
-
-            for (Schedule sc: schedule){
-                Schedule s = new Schedule(sc.getSchedule_Type(),sc.getHall_Name(),sc.getStart_Date(),sc.getStart_Time(),sc.getEnd_Date(),sc.getEnd_Time(),sc.getRemarks());
-                s.WriteSchedule();
-            }
+            FileOperation.FileWriting("Schedule.txt", schedule);
             JOptionPane.showMessageDialog(null, "The data has been deleted successfully");
             this.dispose();
             windowClosing();

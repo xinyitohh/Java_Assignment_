@@ -122,7 +122,8 @@ public class Hall extends FileOperation implements DataValidation{
         // Warning the user
         if (message.length() > 0){
             message.setLength(message.length() - 1);
-            JOptionPane.showMessageDialog(null, "Please complete the selection for" + message + ". Thank You", "Warning", JOptionPane.WARNING_MESSAGE);            
+            JOptionPane.showMessageDialog(null, "Please complete the selection for" + message + ". Thank You", "Warning", 
+                    JOptionPane.WARNING_MESSAGE);            
             valid = false;
         }        
         
@@ -130,7 +131,8 @@ public class Hall extends FileOperation implements DataValidation{
             Hall h = hallData.get(i);
             if (i == index)continue;
                 if ((this.HallName != null && HallName.equals(h.getHallName())) && !h.equals(this)){
-                    JOptionPane.showMessageDialog(null, "The hall information already exists. Please try again", "Hall Info Duplication", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "The hall information already exists. "
+                            + "Please try again", "Hall Info Duplication", JOptionPane.ERROR_MESSAGE);
                     valid = false;
                     break;
                 }
