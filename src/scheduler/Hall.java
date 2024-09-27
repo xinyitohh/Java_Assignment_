@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class Hall extends FileOperation implements DataValidation{
+public class Hall implements DataValidation{
     private String HallType;
     protected String HallName;
     private String Capacity;
@@ -78,16 +78,7 @@ public class Hall extends FileOperation implements DataValidation{
         return  HallType + ";" + HallName + ";" + Capacity + ";" + Equipment;
     }
     
-    
-    
-    public void WriteHall(){
-        ArrayList<String> hall = new ArrayList<>();
-        String line = HallType + ";" + HallName + ";" + Capacity + ";" + Equipment;
-        hall.add(line);
-        System.out.println(hall.getLast());
-        super.FileWriting("hall.txt",hall);  
-    }
-    
+        
     public void LoadHallName(JComboBox cbox){
         try{
             ArrayList<Hall> hall =  FileOperation.ReadHall("hall.txt");
