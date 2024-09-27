@@ -94,8 +94,7 @@ public class FileOperation {
         while ((line = reader.readLine()) != null){
             String[] part = line.split(";");
 
-            if (part.length == 6 && currentUser.getUserId().equals(part[3]) && part[4].equals("In Progress")){
-                System.out.println("maintenance read");
+            if (part.length == 6){
                 String id = part[0];
                 String issue = part[1];
                 String customer = part[2];

@@ -37,7 +37,9 @@ public class Scheduler_Home extends javax.swing.JFrame{
             maintenance = file.ReadMaintenance("issue.txt");
             int count = 0;
             for (Data_Maintenance d: maintenance){
+               if (d.getStaff().equals(currentUser.getUserId()) && d.getStatus().equals("In Progress")){
                     count++;
+                }
             }
             lblPending.setText(Integer.toString(count));
         } catch(IOException ex){}   

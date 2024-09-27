@@ -1,3 +1,8 @@
+Banquet Hall;Conference Room;300;[Stage Ligthing,Lectern,Microphone,Whiteboard]
+Auditorium;Lecture Hall;1000;[Speakers,Stage Ligthing,Projector,Lectern,Microphone,Whiteboard]
+Banquet Hall;Meeting Room;300;[Stage Ligthing,Microphone,Whiteboard]
+Auditorium;Auditorium;1000;[Stage Ligthing,Lectern,Microphone,Whiteboard]
+Meeting Room;Classroom;30;[Stage Ligthing,Projector,Microphone]
 Banquet Hall;Wedding Hall;300;[Speakers,Stage Ligthing,Microphone]
 Auditorium;Seminar;1000;[Projector,Lectern,Whiteboard]
 Meeting Room;Meet One;30;[Projector,Microphone,Whiteboard]

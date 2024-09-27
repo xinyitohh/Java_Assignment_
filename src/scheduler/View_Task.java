@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import admin.Frame_Login;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -50,7 +51,11 @@ public class View_Task extends javax.swing.JFrame {
         try{
             FileOperation file = new FileOperation();
             issueData = file.ReadMaintenance("issue.txt");
-            for (Data_Maintenance d:issueData){cboID.addItem(d.getID());}
+            for (Data_Maintenance d:issueData){
+                if (d.getStaff().equals(currentUser.getUserId()) && d.getStatus().equals("In Progress")){
+                    cboID.addItem(d.getID());
+                }
+            }
             LoadIssue();
         } catch(IOException ex){}
     }
@@ -60,13 +65,13 @@ public class View_Task extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
         int count = 0;
         
-        for (Data_Maintenance d : issueData){
-            model.addRow(new Object[]{
-                        d.getID(),
-                        d.getIssue(),
-                        d.getStatus(),
-                        d.getHall()});
-            if (d.getStatus().equals("In Progress")){
+        for (Data_Maintenance d : issueData){         
+            if (d.getStaff().equals(currentUser.getUserId()) && d.getStatus().equals("In Progress")){
+                model.addRow(new Object[]{
+                            d.getID(),
+                            d.getIssue(),
+                            d.getStatus(),
+                            d.getHall()});
                 count++;
             }
         }
@@ -332,14 +337,27 @@ public class View_Task extends javax.swing.JFrame {
                                  
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         Class_Function_Maintenance function = new Class_Function_Maintenance();
-        try {
-            function.updateFileData("issue.txt",cboID.getSelectedItem().toString() ,cboStatus.getSelectedItem().toString(), issueData);
-        } catch (IOException ex) {
-            Logger.getLogger(View_Task.class.getName()).log(Level.SEVERE, null, ex);
+        if (cboID.getSelectedItem() != null){
+            try {
+                function.updateFileData("issue.txt",cboID.getSelectedItem().toString() ,cboStatus.getSelectedItem().toString(), issueData);
+            } catch (IOException ex) {
+                Logger.getLogger(View_Task.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            boolean noData = true;
+            for (Data_Maintenance d: issueData){ 
+                if (d.getStaff().equals(currentUser.getUserId()) && d.getStatus().equals("In Progress")){
+                    cboID.addItem(d.getID());
+                    noData = false;
+                }
+            }
+
+            if (noData){cboID.removeAllItems();}
+            DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
+            model.setRowCount(0);
+            LoadIssue();
         }
-        DefaultTableModel model = (DefaultTableModel)tblIssue.getModel();
-        model.setRowCount(0);
-        LoadIssue();
+        else{JOptionPane.showMessageDialog(null, "No ID Selected", "Error", JOptionPane.ERROR_MESSAGE);}
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void lblHall1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHall1MouseClicked

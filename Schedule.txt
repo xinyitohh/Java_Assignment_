@@ -1,4 +1,3 @@
 Reserved;Seminar;28-09-2024;2:00PM;29-09-2024;4:00PM;Conference
-Availability Slot;Wedding Hall;27-09-2024;4:00PM;27-09-2024;6:00PM;null
 Availability Slot;Meet One;30-09-2024;9:00AM;01-10-2024;3:00PM;null
 Maintenance;Wedding Hall;28-09-2024;12:00PM;28-09-2024;4:00PM;null
