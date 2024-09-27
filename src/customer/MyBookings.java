@@ -477,9 +477,9 @@ public class MyBookings extends javax.swing.JFrame {
                 String[] data = line.split(";");
                 if (data[0].equals(customerId)) {
                     // update balance
-                    double currentBalance = Double.parseDouble(data[7]);
+                    double currentBalance = Double.parseDouble(data[8]);
                     double newBalance = currentBalance + refundAmount;
-                    data[7] = String.format("%.2f", newBalance);
+                    data[8] = String.format("%.2f", newBalance);
                     line = String.join(";", data);
 
                 }
