@@ -109,10 +109,4 @@ public class FileOperation {
         return issueData;
     }
     
-    public static void DeleteFile(String fname){
-        File f = new File(fname);
-        f.delete();
-        System.out.println("File Deleted");
-    }
-    
 }

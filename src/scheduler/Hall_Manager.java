@@ -551,7 +551,6 @@ public class Hall_Manager extends javax.swing.JFrame {
         DataValidation validater = SettingData(-1);       
 
         if (validater.ValidateData()){
-            System.out.println("validate");
             String hallType = cboHallType.getSelectedItem().toString();
             String hallName = txtHallName.getText();
             String capacity = txtCapacity.getText();
