@@ -123,16 +123,6 @@ public class Schedule implements DataValidation{
         return Schedule_Type + ";" + Hall_Name + ";" + Start_Date + ";" + Start_Time + ";" + End_Date + ";" + End_Time + ";" + Remarks;
     }
     
-    public void WriteSchedule(){
-        ArrayList<String> schedule = new ArrayList<String>();
-        System.out.println(this.toString());
-        
-        schedule.add(this.toString());
-        FileOperation f = new FileOperation();
-        f.FileWriting("Schedule.txt", schedule);
-    }
-
-    
     
     public void showTime(JComboBox combo, JTextField text){
         try{
